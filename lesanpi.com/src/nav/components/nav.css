@@ -1,0 +1,18 @@
+.nav{
+	background: white; /*#282c34;*/
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+	align-content: center;
+	align-items: center;
+	
+}
+.navComponent{
+	margin: 5px;
+	padding: 10px;
+	background: #282c34;
+	border-radius: 10px;
+}
+.navComponent p{
+	margin: 0;
+}
