@@ -1,0 +1,37 @@
+.blogMessageContainer{
+	position: relative;
+	margin: 20px;
+}
+.blogMessage{
+	height: 250px;
+	width: 150px;
+	border-radius: 10px;
+	margin: 10px;
+	background: white;
+}
+.blogMessageItem{
+	height: 50px;
+	width: 50px;
+	background: gray;/*rgba(255,255,255,.1);*/
+	border-radius: 50px;
+	position: relative;
+	top: -40px;
+	left: 70%; 
+	z-index: 100;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .blogMessageContainer {
+    animation: MessageFloating .5s infinite linear;
+    animation-direction: alternate-reverse;
+  }
+}
+@keyframes MessageFloating {
+  from {
+    top: -50px;
+  }
+  to {
+    top: -40px;
+  }
+  
+}
+
