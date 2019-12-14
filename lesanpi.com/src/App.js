@@ -11,6 +11,7 @@ function App() {
       
       <Message />
       <BlogSection />
+      <Message />
       
     </div>
   );
