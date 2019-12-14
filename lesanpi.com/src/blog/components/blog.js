@@ -1,16 +1,11 @@
 import React from 'react';
-import './blog.css'
+import './blog.css';
 function Blog(props) {
 	return(
 		<div className="blogSection">
-			<div className="blogMessageContainer">
-				<div className="blogMessage">
-					
-				</div>
-				<div className="blogMessageItem">
-					
-				</div>
-			</div> 
+			<div className="blogInner">
+				{props.children}
+			</div>	
 		</div> 
 	)
 }

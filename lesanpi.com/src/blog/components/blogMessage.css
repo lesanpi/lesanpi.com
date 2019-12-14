@@ -1,37 +1,42 @@
 .blogMessageContainer{
 	position: relative;
 	margin: 20px;
+	top: 0%;
 }
 .blogMessage{
-	height: 250px;
-	width: 150px;
+	height: 200px;
+	width: 350px;
 	border-radius: 10px;
 	margin: 10px;
 	background: white;
 }
 .blogMessageItem{
-	height: 50px;
-	width: 50px;
-	background: gray;/*rgba(255,255,255,.1);*/
+	height: 70px;
+	width: 70px;
+	background: gray;
 	border-radius: 50px;
 	position: relative;
 	top: -40px;
-	left: 70%; 
-	z-index: 100;
+	left: 85%; 
+	z-index: 2;
 }
 @media (prefers-reduced-motion: no-preference) {
-  .blogMessageContainer {
+  .blogMessageContainer{
     animation: MessageFloating .5s infinite linear;
     animation-direction: alternate-reverse;
+    
   }
 }
+.blogMessageContainer:hover {
+    animation: none;
+    top: 0%;
+ }
 @keyframes MessageFloating {
   from {
-    top: -50px;
+    top: -.5rem;
   }
   to {
-    top: -40px;
+    top: .5rem;
   }
   
 }
-

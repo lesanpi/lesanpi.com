@@ -5,10 +5,10 @@ function Nav(props) {
 		<div className="mainMenu">
 			<div className="innerMainMenu">
 				<ul>
-					<li><a>Home</a></li>
-					<li><a>Blog</a></li>
-					<li><a>Contact</a></li>
-					<li><a>Portfolio</a></li>
+					<li><a href="www.google.com">Home</a></li>
+					<li><a href="www.google.com">Blog</a></li>
+					<li><a href="www.google.com">Contact</a></li>
+					<li><a href="www.google.com">Portfolio</a></li>
 				</ul>
 			</div>
 		</div>
