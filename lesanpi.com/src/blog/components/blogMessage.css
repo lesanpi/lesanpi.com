@@ -33,10 +33,10 @@
  }
 @keyframes MessageFloating {
   from {
-    top: -.5rem;
+    top: -.2rem;
   }
   to {
-    top: .5rem;
+    top: .2rem;
   }
   
 }
