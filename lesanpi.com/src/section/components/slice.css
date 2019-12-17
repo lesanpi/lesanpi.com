@@ -1,0 +1,51 @@
+.slice {
+    transition: 0.4s;
+    position: relative;
+    background-color: #333;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-blend-mode: multiply;
+    overflow: hidden;
+    cursor: pointer;
+}
+.slice {
+    float: left;
+    width: calc(50% / 4);
+    height: 100%;
+}
+.slice .sliceTitle {
+    height: 100%;
+    z-index: 100;
+    cursor: pointer;
+    background: 
+}
+.slice .sliceTitle h3 {
+    position: relative;
+    color: #ffcb00;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 0;
+}
+.slice .sliceTitle h3 {
+    height: 100%;
+    font-size: 3vw;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    left: 50%;
+    transform: translateX(-50%) rotate(180deg);
+}
+.sliceOpen {
+    background-color: #999;
+    background-blend-mode: normal;
+    cursor: unset;
+}
+.sliceHidden {
+    display: none;
+}
+.sliceContentHidden {
+    bottom: -100%;
+    opacity: 0;
+    height: 0;
+}
