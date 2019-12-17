@@ -1,18 +1,29 @@
 import React from 'react';
 import './slice.css'
 function Slice(props) {
-	return(
-		<div className="slice">
+	if(props.active){
+		return(
+			<div className="sliceActive">
+				<div id="v1_content" class="sliceContent">
+	            	<h2>Titulo de Slice</h2>
+		            <div>
+		                <b>Subtitulo</b>
+		                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+		            </div>
+	            </div>
+        	</div>
+		)
+	} else return(
+		<div className="slice"
+			onClick={props.handleActive}>
 			<div className="sliceTitle">
 				<h3>Titulo de Slice</h3>
 			</div>
-			<div id="v1_content" class="v-content">
-            	<h2>Titulo de Slice</h2>
-            <div>
-                <b>Subtitulo</b>
-                <p>Contenido</p>
-            </div>
-        	</div>
 		</div>
 	)
 }
