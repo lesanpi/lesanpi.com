@@ -1,7 +1,9 @@
 import React from 'react';
-import './nav.css'
+import './nav.css';
+		
 function Nav(props) {
 	return(
+		<div>
 		<div className="mainMenu">
 			<div className="innerMainMenu">
 				<ul>
@@ -12,7 +14,19 @@ function Nav(props) {
 				</ul>
 			</div>
 		</div>
+		</div>
 	)
 }
 
 export default Nav;
+
+/*<div className="bottomBar">
+			
+		</div>
+		<div className="leftBar">
+			
+		</div>
+		<div className="rightBar">
+			
+		</div>
+		*/

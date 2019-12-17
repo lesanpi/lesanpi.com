@@ -12,7 +12,7 @@ function Typing(props) {
 	else return(
 		
 		<p className="line anim-typewriter" style={{fontSize: props.size +'%',
-													top: 50 + 'px'}}>
+													top: 53 + 'px'}}>
 			{props.text}
 		</p>
 	

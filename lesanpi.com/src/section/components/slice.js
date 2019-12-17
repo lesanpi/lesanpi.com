@@ -4,10 +4,10 @@ function Slice(props) {
 	if(props.active){
 		return(
 			<div className="sliceActive">
-				<div id="v1_content" class="sliceContent">
+				<div>
 	            	<h2>Titulo de Slice</h2>
-		            <div>
-		                <b>Subtitulo</b>
+	            	<b>Subtitulo</b>
+		            <div className='sliceContent'>
 		                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
