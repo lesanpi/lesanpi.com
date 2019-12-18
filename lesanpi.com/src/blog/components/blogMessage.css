@@ -1,10 +1,10 @@
 .blogMessageContainer{
-	position: relative;
-	margin: 20px;
+	margin: 40px;
+	height: calc(100vh - 200px);
 	top: 0%;
 }
 .blogMessage{
-	height: 200px;
+	height: 100%;
 	width: 350px;
 	border-radius: 10px;
 	margin: 10px;

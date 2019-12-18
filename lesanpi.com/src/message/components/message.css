@@ -37,6 +37,7 @@
 .anim-typewriter-description{
 	animation: typewriterDescription 2s steps(20) 1s 1 normal both,
 	blinkTextCursor 500ms steps(20) infinite normal;
+	animation-delay: 3s;
 	color: white;
 	background: black;
 }

@@ -1,19 +1,22 @@
 .blogSection{
 	width: 100%;	
-	height: 100%;
-	background-color: rgba(0,0,0,0.8);
+	height: calc(100vh - 60px);
+	background-color: #222;
 	display: block;
 	flex-wrap: wrap;
 	align-content: center;
+	overflow: hidden;
 	margin: 0;
-	padding: 0;
+	padding: 20px;
 }
 .blogInner{
 	display: flex;
-	flex-wrap: wrap;
+	flex-direction: row;
 	align-content: center;
 	justify-content: center;
-	width: 100%;
+	overflow-x: auto;
+	height: 100%;
+	width: auto;
 
 }
 

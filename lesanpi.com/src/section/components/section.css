@@ -2,4 +2,5 @@
 	height: calc(100vh - 60px);
 	display: block;
 	background: white;
+	overflow: hidden;
 }

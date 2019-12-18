@@ -9,11 +9,11 @@ class MessageSection extends Component {
 
 			<MessageComponent>
 				<Typing text="Luis E. Sanchez P."
-					size={180}
+					size={280}
 
 				/>
 				<Typing text="Desarrollador Web/Movil"
-					size={100}
+					size={150}
 					description={true}
 				/>
 			</MessageComponent>			
