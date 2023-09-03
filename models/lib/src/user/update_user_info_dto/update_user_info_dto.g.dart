@@ -16,7 +16,8 @@ _$_UpdateUserInfoDto _$$_UpdateUserInfoDtoFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$$_UpdateUserInfoDtoToJson(
-    _$_UpdateUserInfoDto instance) {
+  _$_UpdateUserInfoDto instance,
+) {
   final val = <String, dynamic>{};
 
   void writeNotNull(String key, dynamic value) {

@@ -21,4 +21,23 @@ enum MultimediaTypeEnum {
         (MultimediaTypeEnum.audio) => 'audio',
         (MultimediaTypeEnum.url) => 'url',
       };
+
+  /// Create type from given json
+  static MultimediaTypeEnum? fromJson(dynamic json) {
+    if (json == null) return null;
+    if (json is MultimediaTypeEnum) return json;
+    if (json! is String) return null;
+    return switch (json) {
+      ('video') => MultimediaTypeEnum.video,
+      ('image') => MultimediaTypeEnum.image,
+      ('audio') => MultimediaTypeEnum.audio,
+      ('url') => MultimediaTypeEnum.url,
+      (_) => null
+    };
+  }
+
+  /// Convert to json
+  String? toJson() {
+    return toString();
+  }
 }

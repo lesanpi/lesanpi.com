@@ -1,3 +1,6 @@
+import 'package:either_dart/either.dart';
+import 'package:exceptions/exceptions.dart';
+import 'package:failures/failures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
 
@@ -19,4 +22,45 @@ class CreateMultimediaDto with _$CreateMultimediaDto {
   /// Creates a CreateMultimediaDto from Json map
   factory CreateMultimediaDto.fromJson(Map<String, dynamic> data) =>
       _$CreateMultimediaDtoFromJson(data);
+
+  /// Validate [CreateMultimediaDto]
+  static Either<ValidationFailure, CreateMultimediaDto> validated(
+    Map<String, dynamic> json,
+  ) {
+    try {
+      final errors = <String, List<String>>{};
+      final filename = json['filename'] as String? ?? '';
+      final url = json['url'] as String? ?? '';
+      final type = MultimediaTypeEnum.fromJson(json['type']);
+
+      if (filename.isEmpty) {
+        errors['filename'] = ['Filename is required'];
+      }
+      if (url.isEmpty) {
+        errors['url'] = ['Url is required'];
+      }
+      if (type == null) {
+        errors['type'] = ['Type is required'];
+      }
+      if (errors.isEmpty) return Right(CreateMultimediaDto.fromJson(json));
+      throw BadRequestException(
+        message: 'Validation failed',
+        errors: errors,
+      );
+    } on ValidationFailure catch (e) {
+      return Left(
+        ValidationFailure(
+          message: e.message,
+          errors: e.errors,
+          statusCode: e.statusCode,
+        ),
+      );
+    } on Exception {
+      return const Left(
+        ValidationFailure(
+          message: 'Validation failed',
+        ),
+      );
+    }
+  }
 }

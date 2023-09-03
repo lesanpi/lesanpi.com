@@ -1,7 +1,5 @@
-/// {@template exceptions}
-/// A Very Good Project created by Very Good CLI.
-/// {@endtemplate}
-class Exceptions {
-  /// {@macro exceptions}
-  const Exceptions();
-}
+export 'http_exception/bad_request_exception.dart';
+export 'http_exception/http_exception.dart';
+export 'http_exception/not_found_exception.dart';
+export 'http_exception/unathorized_exception.dart';
+export 'server_exception.dart';

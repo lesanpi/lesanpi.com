@@ -3,9 +3,5 @@ import 'package:test/test.dart';
 import 'package:exceptions/exceptions.dart';
 
 void main() {
-  group('Exceptions', () {
-    test('can be instantiated', () {
-      expect(Exceptions(), isNotNull);
-    });
-  });
+  group('Exceptions', () {});
 }
