@@ -11,12 +11,12 @@ part 'update_post_dto.g.dart';
 class UpdatePostDto with _$UpdatePostDto {
   /// {@macro create_post_dto}
   const factory UpdatePostDto({
-    String? title,
-    List<String>? tags,
-    String? user,
-    CreateMultimediaDto? cover,
-    String? content,
-    List<PostSectionEnum>? sections,
+    @JsonKey(includeIfNull: false) String? title,
+    @JsonKey(includeIfNull: false) List<String>? tags,
+    @JsonKey(includeIfNull: false) String? user,
+    @JsonKey(includeIfNull: false) CreateMultimediaDto? cover,
+    @JsonKey(includeIfNull: false) String? content,
+    @JsonKey(includeIfNull: false) List<PostSectionEnum>? sections,
   }) = _UpdatePostDto;
 
   /// Creates a UpdatePostDto from Json map

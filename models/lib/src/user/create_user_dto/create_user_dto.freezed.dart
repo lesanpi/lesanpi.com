@@ -24,6 +24,7 @@ mixin _$CreateUserDto {
   String get lastname => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  CreateMultimediaDto? get photo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +38,14 @@ abstract class $CreateUserDtoCopyWith<$Res> {
           CreateUserDto value, $Res Function(CreateUserDto) then) =
       _$CreateUserDtoCopyWithImpl<$Res, CreateUserDto>;
   @useResult
-  $Res call({String name, String lastname, String password, String email});
+  $Res call(
+      {String name,
+      String lastname,
+      String password,
+      String email,
+      CreateMultimediaDto? photo});
+
+  $CreateMultimediaDtoCopyWith<$Res>? get photo;
 }
 
 /// @nodoc
@@ -57,6 +65,7 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
     Object? lastname = null,
     Object? password = null,
     Object? email = null,
+    Object? photo = freezed,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -75,7 +84,23 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      photo: freezed == photo
+          ? _value.photo
+          : photo // ignore: cast_nullable_to_non_nullable
+              as CreateMultimediaDto?,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $CreateMultimediaDtoCopyWith<$Res>? get photo {
+    if (_value.photo == null) {
+      return null;
+    }
+
+    return $CreateMultimediaDtoCopyWith<$Res>(_value.photo!, (value) {
+      return _then(_value.copyWith(photo: value) as $Val);
+    });
   }
 }
 
@@ -87,7 +112,15 @@ abstract class _$$_CreateUserDtoCopyWith<$Res>
       __$$_CreateUserDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String lastname, String password, String email});
+  $Res call(
+      {String name,
+      String lastname,
+      String password,
+      String email,
+      CreateMultimediaDto? photo});
+
+  @override
+  $CreateMultimediaDtoCopyWith<$Res>? get photo;
 }
 
 /// @nodoc
@@ -105,6 +138,7 @@ class __$$_CreateUserDtoCopyWithImpl<$Res>
     Object? lastname = null,
     Object? password = null,
     Object? email = null,
+    Object? photo = freezed,
   }) {
     return _then(_$_CreateUserDto(
       name: null == name
@@ -123,6 +157,10 @@ class __$$_CreateUserDtoCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      photo: freezed == photo
+          ? _value.photo
+          : photo // ignore: cast_nullable_to_non_nullable
+              as CreateMultimediaDto?,
     ));
   }
 }
@@ -134,7 +172,8 @@ class _$_CreateUserDto implements _CreateUserDto {
       {required this.name,
       required this.lastname,
       required this.password,
-      required this.email});
+      required this.email,
+      this.photo});
 
   factory _$_CreateUserDto.fromJson(Map<String, dynamic> json) =>
       _$$_CreateUserDtoFromJson(json);
@@ -147,10 +186,12 @@ class _$_CreateUserDto implements _CreateUserDto {
   final String password;
   @override
   final String email;
+  @override
+  final CreateMultimediaDto? photo;
 
   @override
   String toString() {
-    return 'CreateUserDto(name: $name, lastname: $lastname, password: $password, email: $email)';
+    return 'CreateUserDto(name: $name, lastname: $lastname, password: $password, email: $email, photo: $photo)';
   }
 
   @override
@@ -163,12 +204,14 @@ class _$_CreateUserDto implements _CreateUserDto {
                 other.lastname == lastname) &&
             (identical(other.password, password) ||
                 other.password == password) &&
-            (identical(other.email, email) || other.email == email));
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.photo, photo) || other.photo == photo));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, lastname, password, email);
+  int get hashCode =>
+      Object.hash(runtimeType, name, lastname, password, email, photo);
 
   @JsonKey(ignore: true)
   @override
@@ -189,7 +232,8 @@ abstract class _CreateUserDto implements CreateUserDto {
       {required final String name,
       required final String lastname,
       required final String password,
-      required final String email}) = _$_CreateUserDto;
+      required final String email,
+      final CreateMultimediaDto? photo}) = _$_CreateUserDto;
 
   factory _CreateUserDto.fromJson(Map<String, dynamic> json) =
       _$_CreateUserDto.fromJson;
@@ -202,6 +246,8 @@ abstract class _CreateUserDto implements CreateUserDto {
   String get password;
   @override
   String get email;
+  @override
+  CreateMultimediaDto? get photo;
   @override
   @JsonKey(ignore: true)
   _$$_CreateUserDtoCopyWith<_$_CreateUserDto> get copyWith =>

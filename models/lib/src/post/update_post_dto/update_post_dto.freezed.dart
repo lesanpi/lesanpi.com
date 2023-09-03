@@ -20,11 +20,17 @@ UpdatePostDto _$UpdatePostDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdatePostDto {
+  @JsonKey(includeIfNull: false)
   String? get title => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   List<String>? get tags => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   String? get user => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   CreateMultimediaDto? get cover => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   String? get content => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   List<PostSectionEnum>? get sections => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -40,12 +46,12 @@ abstract class $UpdatePostDtoCopyWith<$Res> {
       _$UpdatePostDtoCopyWithImpl<$Res, UpdatePostDto>;
   @useResult
   $Res call(
-      {String? title,
-      List<String>? tags,
-      String? user,
-      CreateMultimediaDto? cover,
-      String? content,
-      List<PostSectionEnum>? sections});
+      {@JsonKey(includeIfNull: false) String? title,
+      @JsonKey(includeIfNull: false) List<String>? tags,
+      @JsonKey(includeIfNull: false) String? user,
+      @JsonKey(includeIfNull: false) CreateMultimediaDto? cover,
+      @JsonKey(includeIfNull: false) String? content,
+      @JsonKey(includeIfNull: false) List<PostSectionEnum>? sections});
 
   $CreateMultimediaDtoCopyWith<$Res>? get cover;
 }
@@ -120,12 +126,12 @@ abstract class _$$_UpdatePostDtoCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? title,
-      List<String>? tags,
-      String? user,
-      CreateMultimediaDto? cover,
-      String? content,
-      List<PostSectionEnum>? sections});
+      {@JsonKey(includeIfNull: false) String? title,
+      @JsonKey(includeIfNull: false) List<String>? tags,
+      @JsonKey(includeIfNull: false) String? user,
+      @JsonKey(includeIfNull: false) CreateMultimediaDto? cover,
+      @JsonKey(includeIfNull: false) String? content,
+      @JsonKey(includeIfNull: false) List<PostSectionEnum>? sections});
 
   @override
   $CreateMultimediaDtoCopyWith<$Res>? get cover;
@@ -182,12 +188,12 @@ class __$$_UpdatePostDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_UpdatePostDto implements _UpdatePostDto {
   const _$_UpdatePostDto(
-      {this.title,
-      final List<String>? tags,
-      this.user,
-      this.cover,
-      this.content,
-      final List<PostSectionEnum>? sections})
+      {@JsonKey(includeIfNull: false) this.title,
+      @JsonKey(includeIfNull: false) final List<String>? tags,
+      @JsonKey(includeIfNull: false) this.user,
+      @JsonKey(includeIfNull: false) this.cover,
+      @JsonKey(includeIfNull: false) this.content,
+      @JsonKey(includeIfNull: false) final List<PostSectionEnum>? sections})
       : _tags = tags,
         _sections = sections;
 
@@ -195,9 +201,11 @@ class _$_UpdatePostDto implements _UpdatePostDto {
       _$$_UpdatePostDtoFromJson(json);
 
   @override
+  @JsonKey(includeIfNull: false)
   final String? title;
   final List<String>? _tags;
   @override
+  @JsonKey(includeIfNull: false)
   List<String>? get tags {
     final value = _tags;
     if (value == null) return null;
@@ -207,13 +215,17 @@ class _$_UpdatePostDto implements _UpdatePostDto {
   }
 
   @override
+  @JsonKey(includeIfNull: false)
   final String? user;
   @override
+  @JsonKey(includeIfNull: false)
   final CreateMultimediaDto? cover;
   @override
+  @JsonKey(includeIfNull: false)
   final String? content;
   final List<PostSectionEnum>? _sections;
   @override
+  @JsonKey(includeIfNull: false)
   List<PostSectionEnum>? get sections {
     final value = _sections;
     if (value == null) return null;
@@ -267,27 +279,34 @@ class _$_UpdatePostDto implements _UpdatePostDto {
 
 abstract class _UpdatePostDto implements UpdatePostDto {
   const factory _UpdatePostDto(
-      {final String? title,
-      final List<String>? tags,
-      final String? user,
-      final CreateMultimediaDto? cover,
-      final String? content,
+      {@JsonKey(includeIfNull: false) final String? title,
+      @JsonKey(includeIfNull: false) final List<String>? tags,
+      @JsonKey(includeIfNull: false) final String? user,
+      @JsonKey(includeIfNull: false) final CreateMultimediaDto? cover,
+      @JsonKey(includeIfNull: false) final String? content,
+      @JsonKey(includeIfNull: false)
       final List<PostSectionEnum>? sections}) = _$_UpdatePostDto;
 
   factory _UpdatePostDto.fromJson(Map<String, dynamic> json) =
       _$_UpdatePostDto.fromJson;
 
   @override
+  @JsonKey(includeIfNull: false)
   String? get title;
   @override
+  @JsonKey(includeIfNull: false)
   List<String>? get tags;
   @override
+  @JsonKey(includeIfNull: false)
   String? get user;
   @override
+  @JsonKey(includeIfNull: false)
   CreateMultimediaDto? get cover;
   @override
+  @JsonKey(includeIfNull: false)
   String? get content;
   @override
+  @JsonKey(includeIfNull: false)
   List<PostSectionEnum>? get sections;
   @override
   @JsonKey(ignore: true)

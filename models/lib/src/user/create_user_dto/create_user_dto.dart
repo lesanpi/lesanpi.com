@@ -1,4 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:models/src/multimedia/create_multimedia_dto/create_multimedia_dto.dart';
+import 'package:models/src/multimedia/multimedia.dart';
 
 part 'create_user_dto.freezed.dart';
 part 'create_user_dto.g.dart';
@@ -14,6 +16,7 @@ class CreateUserDto with _$CreateUserDto {
     required String lastname,
     required String password,
     required String email,
+    CreateMultimediaDto? photo,
   }) = _CreateUserDto;
 
   /// Creates a CreateUserDto from Json map

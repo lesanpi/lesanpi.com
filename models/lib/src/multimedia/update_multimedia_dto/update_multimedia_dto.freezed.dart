@@ -22,6 +22,7 @@ UpdateMultimediaDto _$UpdateMultimediaDtoFromJson(Map<String, dynamic> json) {
 mixin _$UpdateMultimediaDto {
   String? get filename => throw _privateConstructorUsedError;
   String? get url => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   MultimediaTypeEnum? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -36,7 +37,10 @@ abstract class $UpdateMultimediaDtoCopyWith<$Res> {
           UpdateMultimediaDto value, $Res Function(UpdateMultimediaDto) then) =
       _$UpdateMultimediaDtoCopyWithImpl<$Res, UpdateMultimediaDto>;
   @useResult
-  $Res call({String? filename, String? url, MultimediaTypeEnum? type});
+  $Res call(
+      {String? filename,
+      String? url,
+      @JsonKey(includeIfNull: false) MultimediaTypeEnum? type});
 }
 
 /// @nodoc
@@ -81,7 +85,10 @@ abstract class _$$_UpdateMultimediaDtoCopyWith<$Res>
       __$$_UpdateMultimediaDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? filename, String? url, MultimediaTypeEnum? type});
+  $Res call(
+      {String? filename,
+      String? url,
+      @JsonKey(includeIfNull: false) MultimediaTypeEnum? type});
 }
 
 /// @nodoc
@@ -119,7 +126,8 @@ class __$$_UpdateMultimediaDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdateMultimediaDto implements _UpdateMultimediaDto {
-  const _$_UpdateMultimediaDto({this.filename, this.url, this.type});
+  const _$_UpdateMultimediaDto(
+      {this.filename, this.url, @JsonKey(includeIfNull: false) this.type});
 
   factory _$_UpdateMultimediaDto.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateMultimediaDtoFromJson(json);
@@ -129,6 +137,7 @@ class _$_UpdateMultimediaDto implements _UpdateMultimediaDto {
   @override
   final String? url;
   @override
+  @JsonKey(includeIfNull: false)
   final MultimediaTypeEnum? type;
 
   @override
@@ -168,9 +177,10 @@ class _$_UpdateMultimediaDto implements _UpdateMultimediaDto {
 
 abstract class _UpdateMultimediaDto implements UpdateMultimediaDto {
   const factory _UpdateMultimediaDto(
-      {final String? filename,
-      final String? url,
-      final MultimediaTypeEnum? type}) = _$_UpdateMultimediaDto;
+          {final String? filename,
+          final String? url,
+          @JsonKey(includeIfNull: false) final MultimediaTypeEnum? type}) =
+      _$_UpdateMultimediaDto;
 
   factory _UpdateMultimediaDto.fromJson(Map<String, dynamic> json) =
       _$_UpdateMultimediaDto.fromJson;
@@ -180,6 +190,7 @@ abstract class _UpdateMultimediaDto implements UpdateMultimediaDto {
   @override
   String? get url;
   @override
+  @JsonKey(includeIfNull: false)
   MultimediaTypeEnum? get type;
   @override
   @JsonKey(ignore: true)

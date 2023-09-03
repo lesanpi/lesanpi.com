@@ -13,7 +13,7 @@ class UpdateMultimediaDto with _$UpdateMultimediaDto {
   const factory UpdateMultimediaDto({
     String? filename,
     String? url,
-    MultimediaTypeEnum? type,
+    @JsonKey(includeIfNull: false) MultimediaTypeEnum? type,
   }) = _UpdateMultimediaDto;
 
   /// Creates a UpdateMultimediaDto from Json map

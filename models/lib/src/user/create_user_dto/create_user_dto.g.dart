@@ -12,6 +12,9 @@ _$_CreateUserDto _$$_CreateUserDtoFromJson(Map<String, dynamic> json) =>
       lastname: json['lastname'] as String,
       password: json['password'] as String,
       email: json['email'] as String,
+      photo: json['photo'] == null
+          ? null
+          : CreateMultimediaDto.fromJson(json['photo'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$$_CreateUserDtoToJson(_$_CreateUserDto instance) =>
@@ -20,4 +23,5 @@ Map<String, dynamic> _$$_CreateUserDtoToJson(_$_CreateUserDto instance) =>
       'lastname': instance.lastname,
       'password': instance.password,
       'email': instance.email,
+      'photo': instance.photo,
     };
