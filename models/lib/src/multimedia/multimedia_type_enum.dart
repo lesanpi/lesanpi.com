@@ -1,6 +1,6 @@
 /// Multimedia type definition
 /// video, image, audio, url.
-enum MultimediaType {
+enum MultimediaTypeEnum {
   /// video
   video,
 
@@ -16,9 +16,9 @@ enum MultimediaType {
 
   @override
   String toString() => switch (this) {
-        (MultimediaType.video) => 'video',
-        (MultimediaType.image) => 'image',
-        (MultimediaType.audio) => 'audio',
-        (MultimediaType.url) => 'url',
+        (MultimediaTypeEnum.video) => 'video',
+        (MultimediaTypeEnum.image) => 'image',
+        (MultimediaTypeEnum.audio) => 'audio',
+        (MultimediaTypeEnum.url) => 'url',
       };
 }

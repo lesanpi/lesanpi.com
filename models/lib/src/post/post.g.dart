@@ -15,6 +15,9 @@ _$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
       user: User.fromJson(json['user'] as Map<String, dynamic>),
       cover: Multimedia.fromJson(json['cover'] as Map<String, dynamic>),
       content: json['content'] as String,
+      section: (json['section'] as List<dynamic>)
+          .map((e) => $enumDecode(_$PostSectionEnumEnumMap, e))
+          .toList(),
       createdAt: const DateTimeConverter().fromJson(json['createdAt']),
       updatedAt: const DateTimeConverterNullable().fromJson(json['updatedAt']),
       active: json['active'] as bool? ?? true,
@@ -27,7 +30,16 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'user': instance.user,
       'cover': instance.cover,
       'content': instance.content,
+      'section':
+          instance.section.map((e) => _$PostSectionEnumEnumMap[e]!).toList(),
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'updatedAt': const DateTimeConverterNullable().toJson(instance.updatedAt),
       'active': instance.active,
     };
+
+const _$PostSectionEnumEnumMap = {
+  PostSectionEnum.featured: 'featured',
+  PostSectionEnum.video: 'video',
+  PostSectionEnum.tutorial: 'tutorial',
+  PostSectionEnum.tip: 'tip',
+};

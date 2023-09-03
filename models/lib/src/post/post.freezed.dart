@@ -26,6 +26,7 @@ mixin _$Post {
   User get user => throw _privateConstructorUsedError;
   Multimedia get cover => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
+  List<PostSectionEnum> get section => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
   @DateTimeConverterNullable()
@@ -49,6 +50,7 @@ abstract class $PostCopyWith<$Res> {
       User user,
       Multimedia cover,
       String content,
+      List<PostSectionEnum> section,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverterNullable() DateTime? updatedAt,
       bool active});
@@ -76,6 +78,7 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
     Object? user = null,
     Object? cover = null,
     Object? content = null,
+    Object? section = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? active = null,
@@ -105,6 +108,10 @@ class _$PostCopyWithImpl<$Res, $Val extends Post>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      section: null == section
+          ? _value.section
+          : section // ignore: cast_nullable_to_non_nullable
+              as List<PostSectionEnum>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -150,6 +157,7 @@ abstract class _$$_PostCopyWith<$Res> implements $PostCopyWith<$Res> {
       User user,
       Multimedia cover,
       String content,
+      List<PostSectionEnum> section,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverterNullable() DateTime? updatedAt,
       bool active});
@@ -175,6 +183,7 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
     Object? user = null,
     Object? cover = null,
     Object? content = null,
+    Object? section = null,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? active = null,
@@ -204,6 +213,10 @@ class __$$_PostCopyWithImpl<$Res> extends _$PostCopyWithImpl<$Res, _$_Post>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
+      section: null == section
+          ? _value._section
+          : section // ignore: cast_nullable_to_non_nullable
+              as List<PostSectionEnum>,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -230,10 +243,12 @@ class _$_Post implements _Post {
       required this.user,
       required this.cover,
       required this.content,
+      required final List<PostSectionEnum> section,
       @DateTimeConverter() required this.createdAt,
       @DateTimeConverterNullable() this.updatedAt,
       this.active = true})
-      : _tags = tags;
+      : _tags = tags,
+        _section = section;
 
   factory _$_Post.fromJson(Map<String, dynamic> json) => _$$_PostFromJson(json);
 
@@ -255,6 +270,14 @@ class _$_Post implements _Post {
   final Multimedia cover;
   @override
   final String content;
+  final List<PostSectionEnum> _section;
+  @override
+  List<PostSectionEnum> get section {
+    if (_section is EqualUnmodifiableListView) return _section;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_section);
+  }
+
   @override
   @DateTimeConverter()
   final DateTime createdAt;
@@ -267,7 +290,7 @@ class _$_Post implements _Post {
 
   @override
   String toString() {
-    return 'Post(id: $id, title: $title, tags: $tags, user: $user, cover: $cover, content: $content, createdAt: $createdAt, updatedAt: $updatedAt, active: $active)';
+    return 'Post(id: $id, title: $title, tags: $tags, user: $user, cover: $cover, content: $content, section: $section, createdAt: $createdAt, updatedAt: $updatedAt, active: $active)';
   }
 
   @override
@@ -281,6 +304,7 @@ class _$_Post implements _Post {
             (identical(other.user, user) || other.user == user) &&
             (identical(other.cover, cover) || other.cover == cover) &&
             (identical(other.content, content) || other.content == content) &&
+            const DeepCollectionEquality().equals(other._section, _section) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
@@ -298,6 +322,7 @@ class _$_Post implements _Post {
       user,
       cover,
       content,
+      const DeepCollectionEquality().hash(_section),
       createdAt,
       updatedAt,
       active);
@@ -324,6 +349,7 @@ abstract class _Post implements Post {
       required final User user,
       required final Multimedia cover,
       required final String content,
+      required final List<PostSectionEnum> section,
       @DateTimeConverter() required final DateTime createdAt,
       @DateTimeConverterNullable() final DateTime? updatedAt,
       final bool active}) = _$_Post;
@@ -342,6 +368,8 @@ abstract class _Post implements Post {
   Multimedia get cover;
   @override
   String get content;
+  @override
+  List<PostSectionEnum> get section;
   @override
   @DateTimeConverter()
   DateTime get createdAt;

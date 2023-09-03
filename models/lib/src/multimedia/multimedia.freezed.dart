@@ -23,7 +23,7 @@ mixin _$Multimedia {
   String get id => throw _privateConstructorUsedError;
   String get filename => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
-  MultimediaType get type => throw _privateConstructorUsedError;
+  MultimediaTypeEnum get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -37,7 +37,7 @@ abstract class $MultimediaCopyWith<$Res> {
           Multimedia value, $Res Function(Multimedia) then) =
       _$MultimediaCopyWithImpl<$Res, Multimedia>;
   @useResult
-  $Res call({String id, String filename, String url, MultimediaType type});
+  $Res call({String id, String filename, String url, MultimediaTypeEnum type});
 }
 
 /// @nodoc
@@ -74,7 +74,7 @@ class _$MultimediaCopyWithImpl<$Res, $Val extends Multimedia>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as MultimediaType,
+              as MultimediaTypeEnum,
     ) as $Val);
   }
 }
@@ -87,7 +87,7 @@ abstract class _$$_MultimediaCopyWith<$Res>
       __$$_MultimediaCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String filename, String url, MultimediaType type});
+  $Res call({String id, String filename, String url, MultimediaTypeEnum type});
 }
 
 /// @nodoc
@@ -122,7 +122,7 @@ class __$$_MultimediaCopyWithImpl<$Res>
       type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
-              as MultimediaType,
+              as MultimediaTypeEnum,
     ));
   }
 }
@@ -146,7 +146,7 @@ class _$_Multimedia implements _Multimedia {
   @override
   final String url;
   @override
-  final MultimediaType type;
+  final MultimediaTypeEnum type;
 
   @override
   String toString() {
@@ -188,7 +188,7 @@ abstract class _Multimedia implements Multimedia {
       {required final String id,
       required final String filename,
       required final String url,
-      required final MultimediaType type}) = _$_Multimedia;
+      required final MultimediaTypeEnum type}) = _$_Multimedia;
 
   factory _Multimedia.fromJson(Map<String, dynamic> json) =
       _$_Multimedia.fromJson;
@@ -200,7 +200,7 @@ abstract class _Multimedia implements Multimedia {
   @override
   String get url;
   @override
-  MultimediaType get type;
+  MultimediaTypeEnum get type;
   @override
   @JsonKey(ignore: true)
   _$$_MultimediaCopyWith<_$_Multimedia> get copyWith =>

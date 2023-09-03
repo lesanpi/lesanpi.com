@@ -11,7 +11,7 @@ _$_Multimedia _$$_MultimediaFromJson(Map<String, dynamic> json) =>
       id: json['id'] as String,
       filename: json['filename'] as String,
       url: json['url'] as String,
-      type: $enumDecode(_$MultimediaTypeEnumMap, json['type']),
+      type: $enumDecode(_$MultimediaTypeEnumEnumMap, json['type']),
     );
 
 Map<String, dynamic> _$$_MultimediaToJson(_$_Multimedia instance) =>
@@ -19,12 +19,12 @@ Map<String, dynamic> _$$_MultimediaToJson(_$_Multimedia instance) =>
       'id': instance.id,
       'filename': instance.filename,
       'url': instance.url,
-      'type': _$MultimediaTypeEnumMap[instance.type],
+      'type': _$MultimediaTypeEnumEnumMap[instance.type]!,
     };
 
-const _$MultimediaTypeEnumMap = {
-  MultimediaType.video: 'video',
-  MultimediaType.image: 'image',
-  MultimediaType.audio: 'audio',
-  MultimediaType.url: 'url',
+const _$MultimediaTypeEnumEnumMap = {
+  MultimediaTypeEnum.video: 'video',
+  MultimediaTypeEnum.image: 'image',
+  MultimediaTypeEnum.audio: 'audio',
+  MultimediaTypeEnum.url: 'url',
 };

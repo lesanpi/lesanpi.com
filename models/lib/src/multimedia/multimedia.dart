@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:models/src/multimedia/multimedia_type.dart';
+import 'package:models/src/multimedia/multimedia_type_enum.dart';
 
 part 'multimedia.freezed.dart';
 part 'multimedia.g.dart';
@@ -15,7 +15,7 @@ class Multimedia with _$Multimedia {
     required String id,
     required String filename,
     required String url,
-    required MultimediaType type,
+    required MultimediaTypeEnum type,
   }) = _Multimedia;
 
   /// Creates a Multimedia from Json map

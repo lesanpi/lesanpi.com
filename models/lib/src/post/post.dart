@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
+import 'package:models/src/post/post_section_enum.dart';
 import 'package:models/src/serializers/date_time_converter.dart';
 
 part 'post.freezed.dart';
@@ -18,6 +19,7 @@ class Post with _$Post {
     required User user,
     required Multimedia cover,
     required String content,
+    required List<PostSectionEnum> section,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverterNullable() DateTime? updatedAt,
     @Default(true) bool active,
