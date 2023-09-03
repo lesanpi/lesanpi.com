@@ -27,7 +27,7 @@ Map<String, dynamic> _$$_UpdateMultimediaDtoToJson(
     }
   }
 
-  writeNotNull('type', _$MultimediaTypeEnumEnumMap[instance.type]);
+  writeNotNull('type', instance.type);
   return val;
 }
 

@@ -26,8 +26,7 @@ Map<String, dynamic> _$$_CreatePostDtoToJson(_$_CreatePostDto instance) =>
       'user': instance.user,
       'cover': instance.cover,
       'content': instance.content,
-      'sections':
-          instance.sections.map((e) => _$PostSectionEnumEnumMap[e]!).toList(),
+      'sections': instance.sections,
     };
 
 const _$PostSectionEnumEnumMap = {

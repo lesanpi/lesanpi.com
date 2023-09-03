@@ -30,8 +30,7 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'user': instance.user,
       'cover': instance.cover,
       'content': instance.content,
-      'sections':
-          instance.sections.map((e) => _$PostSectionEnumEnumMap[e]!).toList(),
+      'sections': instance.sections,
       'createdAt': const DateTimeConverter().toJson(instance.createdAt),
       'updatedAt': const DateTimeConverterNullable().toJson(instance.updatedAt),
       'active': instance.active,
