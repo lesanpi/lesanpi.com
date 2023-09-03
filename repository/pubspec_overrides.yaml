@@ -1,0 +1,8 @@
+# melos_managed_dependency_overrides: failures,models,typedefs
+dependency_overrides:
+  failures:
+    path: ../failures
+  models:
+    path: ../models
+  typedefs:
+    path: ../typedefs

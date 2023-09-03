@@ -6,6 +6,16 @@ publish_to: none
 environment:
   sdk: ">=3.0.0 <4.0.0"
 
+dependencies: 
+  data_source:
+    path: ../data_source
+  either_dart: ^1.0.0
+  failures:
+    path: ../failures
+  models:
+    path: ../models
+  typedefs:
+    path: ../typedefs
 dev_dependencies:
   mocktail: ^0.3.0
   test: ^1.19.2
