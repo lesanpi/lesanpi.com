@@ -1,0 +1,5 @@
+.dart_tool
+.vscode
+.mason
+mason-lock.json
+.fvm/flutter_sdk
