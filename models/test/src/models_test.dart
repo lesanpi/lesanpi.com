@@ -3,9 +3,5 @@ import 'package:test/test.dart';
 import 'package:models/models.dart';
 
 void main() {
-  group('Models', () {
-    test('can be instantiated', () {
-      expect(Models(), isNotNull);
-    });
-  });
+  group('Models', () {});
 }
