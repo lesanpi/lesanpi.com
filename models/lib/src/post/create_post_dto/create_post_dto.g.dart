@@ -1,30 +1,26 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'post.dart';
+part of 'create_post_dto.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Post _$$_PostFromJson(Map<String, dynamic> json) => _$_Post(
-      id: json['id'] as String,
+_$_CreatePostDto _$$_CreatePostDtoFromJson(Map<String, dynamic> json) =>
+    _$_CreatePostDto(
       title: json['title'] as String,
-      tags: (json['tags'] as List<dynamic>)
-          .map((e) => Tag.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      user: User.fromJson(json['user'] as Map<String, dynamic>),
-      cover: Multimedia.fromJson(json['cover'] as Map<String, dynamic>),
+      tags: (json['tags'] as List<dynamic>).map((e) => e as String).toList(),
+      user: json['user'] as String,
+      cover:
+          CreateMultimediaDto.fromJson(json['cover'] as Map<String, dynamic>),
       content: json['content'] as String,
       sections: (json['sections'] as List<dynamic>)
           .map((e) => $enumDecode(_$PostSectionEnumEnumMap, e))
           .toList(),
-      createdAt: const DateTimeConverter().fromJson(json['createdAt']),
-      updatedAt: const DateTimeConverterNullable().fromJson(json['updatedAt']),
-      active: json['active'] as bool? ?? true,
     );
 
-Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
-      'id': instance.id,
+Map<String, dynamic> _$$_CreatePostDtoToJson(_$_CreatePostDto instance) =>
+    <String, dynamic>{
       'title': instance.title,
       'tags': instance.tags,
       'user': instance.user,
@@ -32,9 +28,6 @@ Map<String, dynamic> _$$_PostToJson(_$_Post instance) => <String, dynamic>{
       'content': instance.content,
       'sections':
           instance.sections.map((e) => _$PostSectionEnumEnumMap[e]!).toList(),
-      'createdAt': const DateTimeConverter().toJson(instance.createdAt),
-      'updatedAt': const DateTimeConverterNullable().toJson(instance.updatedAt),
-      'active': instance.active,
     };
 
 const _$PostSectionEnumEnumMap = {

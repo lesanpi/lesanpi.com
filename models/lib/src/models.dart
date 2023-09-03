@@ -1,7 +1,10 @@
+export 'multimedia/create_multimedia_dto/create_multimedia_dto.dart';
 export 'multimedia/multimedia.dart';
 export 'multimedia/multimedia_type_enum.dart';
+export 'multimedia/update_multimedia_dto/update_multimedia_dto.dart';
 export 'post/post.dart';
 export 'post/post_section_enum.dart';
+// export 'post/create_post_dto/create_post_dto.dart';
 export 'tag/tag.dart';
 export 'user/create_user_dto/create_user_dto.dart';
 export 'user/login_user_dto/login_user_dto.dart';

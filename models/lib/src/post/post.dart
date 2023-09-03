@@ -19,7 +19,7 @@ class Post with _$Post {
     required User user,
     required Multimedia cover,
     required String content,
-    required List<PostSectionEnum> section,
+    required List<PostSectionEnum> sections,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverterNullable() DateTime? updatedAt,
     @Default(true) bool active,
