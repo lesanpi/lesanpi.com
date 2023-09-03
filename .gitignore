@@ -3,3 +3,4 @@
 .mason
 mason-lock.json
 .fvm/flutter_sdk
+.idea/
