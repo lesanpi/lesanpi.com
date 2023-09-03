@@ -8,6 +8,7 @@ packages:
   - repository
   - exceptions
   - frontend
+  - typedefs
   - failures
 
 scripts:

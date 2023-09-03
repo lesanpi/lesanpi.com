@@ -20,24 +20,16 @@ _$_UpdatePostDto _$$_UpdatePostDtoFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_UpdatePostDtoToJson(_$_UpdatePostDto instance) {
-  final val = <String, dynamic>{};
-
-  void writeNotNull(String key, dynamic value) {
-    if (value != null) {
-      val[key] = value;
-    }
-  }
-
-  writeNotNull('title', instance.title);
-  writeNotNull('tags', instance.tags);
-  writeNotNull('user', instance.user);
-  writeNotNull('cover', instance.cover);
-  writeNotNull('content', instance.content);
-  writeNotNull('sections',
-      instance.sections?.map((e) => _$PostSectionEnumEnumMap[e]!).toList());
-  return val;
-}
+Map<String, dynamic> _$$_UpdatePostDtoToJson(_$_UpdatePostDto instance) =>
+    <String, dynamic>{
+      'title': instance.title,
+      'tags': instance.tags,
+      'user': instance.user,
+      'cover': instance.cover,
+      'content': instance.content,
+      'sections':
+          instance.sections?.map((e) => _$PostSectionEnumEnumMap[e]!).toList(),
+    };
 
 const _$PostSectionEnumEnumMap = {
   PostSectionEnum.featured: 'featured',

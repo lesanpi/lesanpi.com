@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
 import 'package:models/src/post/post_section_enum.dart';
 import 'package:models/src/serializers/date_time_converter.dart';
+import 'package:typedefs/typedefs.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';
@@ -13,7 +14,7 @@ part 'post.g.dart';
 class Post with _$Post {
   /// {@macro post}
   const factory Post({
-    required String id,
+    required PostId id,
     required String title,
     required List<Tag> tags,
     required User user,

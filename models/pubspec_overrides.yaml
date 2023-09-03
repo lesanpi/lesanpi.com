@@ -1,0 +1,4 @@
+# melos_managed_dependency_overrides: typedefs
+dependency_overrides:
+  typedefs:
+    path: ../typedefs

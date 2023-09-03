@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
+import 'package:typedefs/typedefs.dart';
 
 part 'update_post_dto.freezed.dart';
 part 'update_post_dto.g.dart';
@@ -11,12 +12,12 @@ part 'update_post_dto.g.dart';
 class UpdatePostDto with _$UpdatePostDto {
   /// {@macro create_post_dto}
   const factory UpdatePostDto({
-    @JsonKey(includeIfNull: false) String? title,
-    @JsonKey(includeIfNull: false) List<String>? tags,
-    @JsonKey(includeIfNull: false) String? user,
-    @JsonKey(includeIfNull: false) CreateMultimediaDto? cover,
-    @JsonKey(includeIfNull: false) String? content,
-    @JsonKey(includeIfNull: false) List<PostSectionEnum>? sections,
+    String? title,
+    List<TagId>? tags,
+    UserId? user,
+    CreateMultimediaDto? cover,
+    String? content,
+    List<PostSectionEnum>? sections,
   }) = _UpdatePostDto;
 
   /// Creates a UpdatePostDto from Json map

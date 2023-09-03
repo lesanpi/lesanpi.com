@@ -1,4 +1,4 @@
 /// A Very Good Project created by Very Good CLI.
 library typedefs;
 
-export 'typedefs.dart';
+export 'src/typedefs.dart';

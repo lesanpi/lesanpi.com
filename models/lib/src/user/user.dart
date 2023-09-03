@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
 import 'package:models/src/serializers/date_time_converter.dart';
+import 'package:typedefs/typedefs.dart';
 
 part 'user.freezed.dart';
 part 'user.g.dart';
@@ -12,7 +13,7 @@ part 'user.g.dart';
 class User with _$User {
   /// {@macro user}
   const factory User({
-    required String id,
+    required UserId id,
     required String email,
     required String name,
     required String lastname,

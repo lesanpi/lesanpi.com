@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/src/serializers/date_time_converter.dart';
+import 'package:typedefs/typedefs.dart';
 
 part 'tag.freezed.dart';
 part 'tag.g.dart';
@@ -11,7 +12,7 @@ part 'tag.g.dart';
 class Tag with _$Tag {
   /// {@macro tag}
   const factory Tag({
-    required String id,
+    required TagId id,
     required String name,
     required String color,
     @DateTimeConverter() required DateTime createdAt,

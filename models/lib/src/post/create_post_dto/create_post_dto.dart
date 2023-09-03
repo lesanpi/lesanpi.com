@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
+import 'package:typedefs/typedefs.dart';
 
 part 'create_post_dto.freezed.dart';
 part 'create_post_dto.g.dart';
@@ -12,8 +13,8 @@ class CreatePostDto with _$CreatePostDto {
   /// {@macro create_post_dto}
   const factory CreatePostDto({
     required String title,
-    required List<String> tags,
-    required String user,
+    required List<TagId> tags,
+    required UserId user,
     required CreateMultimediaDto cover,
     required String content,
     required List<PostSectionEnum> sections,
