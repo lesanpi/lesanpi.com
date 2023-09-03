@@ -3,7 +3,7 @@
 // ignore_for_file: type=lint
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
-part of 'network_failure.dart';
+part of 'validation_failure.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -14,35 +14,30 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-NetworkFailure _$NetworkFailureFromJson(Map<String, dynamic> json) {
-  return _NetworkFailure.fromJson(json);
-}
-
 /// @nodoc
-mixin _$NetworkFailure {
+mixin _$ValidationFailure {
   String get message => throw _privateConstructorUsedError;
   int get statusCode => throw _privateConstructorUsedError;
-  List<String> get errors => throw _privateConstructorUsedError;
+  Map<String, List<String>> get errors => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $NetworkFailureCopyWith<NetworkFailure> get copyWith =>
+  $ValidationFailureCopyWith<ValidationFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $NetworkFailureCopyWith<$Res> {
-  factory $NetworkFailureCopyWith(
-          NetworkFailure value, $Res Function(NetworkFailure) then) =
-      _$NetworkFailureCopyWithImpl<$Res, NetworkFailure>;
+abstract class $ValidationFailureCopyWith<$Res> {
+  factory $ValidationFailureCopyWith(
+          ValidationFailure value, $Res Function(ValidationFailure) then) =
+      _$ValidationFailureCopyWithImpl<$Res, ValidationFailure>;
   @useResult
-  $Res call({String message, int statusCode, List<String> errors});
+  $Res call({String message, int statusCode, Map<String, List<String>> errors});
 }
 
 /// @nodoc
-class _$NetworkFailureCopyWithImpl<$Res, $Val extends NetworkFailure>
-    implements $NetworkFailureCopyWith<$Res> {
-  _$NetworkFailureCopyWithImpl(this._value, this._then);
+class _$ValidationFailureCopyWithImpl<$Res, $Val extends ValidationFailure>
+    implements $ValidationFailureCopyWith<$Res> {
+  _$ValidationFailureCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -68,28 +63,28 @@ class _$NetworkFailureCopyWithImpl<$Res, $Val extends NetworkFailure>
       errors: null == errors
           ? _value.errors
           : errors // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, List<String>>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_NetworkFailureCopyWith<$Res>
-    implements $NetworkFailureCopyWith<$Res> {
-  factory _$$_NetworkFailureCopyWith(
-          _$_NetworkFailure value, $Res Function(_$_NetworkFailure) then) =
-      __$$_NetworkFailureCopyWithImpl<$Res>;
+abstract class _$$_ValidationFailureCopyWith<$Res>
+    implements $ValidationFailureCopyWith<$Res> {
+  factory _$$_ValidationFailureCopyWith(_$_ValidationFailure value,
+          $Res Function(_$_ValidationFailure) then) =
+      __$$_ValidationFailureCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String message, int statusCode, List<String> errors});
+  $Res call({String message, int statusCode, Map<String, List<String>> errors});
 }
 
 /// @nodoc
-class __$$_NetworkFailureCopyWithImpl<$Res>
-    extends _$NetworkFailureCopyWithImpl<$Res, _$_NetworkFailure>
-    implements _$$_NetworkFailureCopyWith<$Res> {
-  __$$_NetworkFailureCopyWithImpl(
-      _$_NetworkFailure _value, $Res Function(_$_NetworkFailure) _then)
+class __$$_ValidationFailureCopyWithImpl<$Res>
+    extends _$ValidationFailureCopyWithImpl<$Res, _$_ValidationFailure>
+    implements _$$_ValidationFailureCopyWith<$Res> {
+  __$$_ValidationFailureCopyWithImpl(
+      _$_ValidationFailure _value, $Res Function(_$_ValidationFailure) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -99,7 +94,7 @@ class __$$_NetworkFailureCopyWithImpl<$Res>
     Object? statusCode = null,
     Object? errors = null,
   }) {
-    return _then(_$_NetworkFailure(
+    return _then(_$_ValidationFailure(
       message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
@@ -111,53 +106,50 @@ class __$$_NetworkFailureCopyWithImpl<$Res>
       errors: null == errors
           ? _value._errors
           : errors // ignore: cast_nullable_to_non_nullable
-              as List<String>,
+              as Map<String, List<String>>,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$_NetworkFailure implements _NetworkFailure {
-  const _$_NetworkFailure(
-      {required this.message,
-      required this.statusCode,
-      final List<String> errors = const []})
-      : _errors = errors;
 
-  factory _$_NetworkFailure.fromJson(Map<String, dynamic> json) =>
-      _$$_NetworkFailureFromJson(json);
+class _$_ValidationFailure implements _ValidationFailure {
+  const _$_ValidationFailure(
+      {required this.message,
+      this.statusCode = HttpStatus.badRequest,
+      final Map<String, List<String>> errors = const {}})
+      : _errors = errors;
 
   @override
   final String message;
   @override
+  @JsonKey()
   final int statusCode;
-  final List<String> _errors;
+  final Map<String, List<String>> _errors;
   @override
   @JsonKey()
-  List<String> get errors {
-    if (_errors is EqualUnmodifiableListView) return _errors;
+  Map<String, List<String>> get errors {
+    if (_errors is EqualUnmodifiableMapView) return _errors;
     // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_errors);
+    return EqualUnmodifiableMapView(_errors);
   }
 
   @override
   String toString() {
-    return 'NetworkFailure(message: $message, statusCode: $statusCode, errors: $errors)';
+    return 'ValidationFailure(message: $message, statusCode: $statusCode, errors: $errors)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_NetworkFailure &&
+            other is _$_ValidationFailure &&
             (identical(other.message, message) || other.message == message) &&
             (identical(other.statusCode, statusCode) ||
                 other.statusCode == statusCode) &&
             const DeepCollectionEquality().equals(other._errors, _errors));
   }
 
-  @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, message, statusCode,
       const DeepCollectionEquality().hash(_errors));
@@ -165,34 +157,25 @@ class _$_NetworkFailure implements _NetworkFailure {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_NetworkFailureCopyWith<_$_NetworkFailure> get copyWith =>
-      __$$_NetworkFailureCopyWithImpl<_$_NetworkFailure>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_NetworkFailureToJson(
-      this,
-    );
-  }
+  _$$_ValidationFailureCopyWith<_$_ValidationFailure> get copyWith =>
+      __$$_ValidationFailureCopyWithImpl<_$_ValidationFailure>(
+          this, _$identity);
 }
 
-abstract class _NetworkFailure implements NetworkFailure {
-  const factory _NetworkFailure(
+abstract class _ValidationFailure implements ValidationFailure {
+  const factory _ValidationFailure(
       {required final String message,
-      required final int statusCode,
-      final List<String> errors}) = _$_NetworkFailure;
-
-  factory _NetworkFailure.fromJson(Map<String, dynamic> json) =
-      _$_NetworkFailure.fromJson;
+      final int statusCode,
+      final Map<String, List<String>> errors}) = _$_ValidationFailure;
 
   @override
   String get message;
   @override
   int get statusCode;
   @override
-  List<String> get errors;
+  Map<String, List<String>> get errors;
   @override
   @JsonKey(ignore: true)
-  _$$_NetworkFailureCopyWith<_$_NetworkFailure> get copyWith =>
+  _$$_ValidationFailureCopyWith<_$_ValidationFailure> get copyWith =>
       throw _privateConstructorUsedError;
 }
