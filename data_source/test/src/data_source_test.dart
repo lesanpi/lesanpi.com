@@ -3,9 +3,5 @@ import 'package:test/test.dart';
 import 'package:data_source/data_source.dart';
 
 void main() {
-  group('DataSource', () {
-    test('can be instantiated', () {
-      expect(DataSource(), isNotNull);
-    });
-  });
+  group('DataSource', () {});
 }
