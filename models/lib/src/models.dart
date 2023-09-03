@@ -1,7 +1,5 @@
-/// {@template models}
-/// A Very Good Project created by Very Good CLI.
-/// {@endtemplate}
-class Models {
-  /// {@macro models}
-  const Models();
-}
+export 'multimedia/multimedia.dart';
+export 'multimedia/multimedia_type.dart';
+export 'post/post.dart';
+export 'tag/tag.dart';
+export 'user/user.dart';

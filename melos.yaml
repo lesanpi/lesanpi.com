@@ -11,7 +11,7 @@ packages:
 
 scripts:
   analyze:
-    exec: dart analyze .
+    run: dart analyze 
 
   generate:build:
     run: melos run build_runner:build --no-select
