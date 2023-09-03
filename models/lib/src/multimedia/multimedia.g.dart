@@ -19,7 +19,7 @@ Map<String, dynamic> _$$_MultimediaToJson(_$_Multimedia instance) =>
       'id': instance.id,
       'filename': instance.filename,
       'url': instance.url,
-      'type': _$MultimediaTypeEnumMap[instance.type]!,
+      'type': _$MultimediaTypeEnumMap[instance.type],
     };
 
 const _$MultimediaTypeEnumMap = {

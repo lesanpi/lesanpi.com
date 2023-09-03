@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
-import 'package:models/src/serializers.dart/date_time_converter.dart';
+import 'package:models/src/serializers/date_time_converter.dart';
 
 part 'post.freezed.dart';
 part 'post.g.dart';

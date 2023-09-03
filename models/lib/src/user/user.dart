@@ -1,6 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/models.dart';
-import 'package:models/src/serializers.dart/date_time_converter.dart';
+import 'package:models/src/serializers/date_time_converter.dart';
 
 part 'user.freezed.dart';
 part 'user.g.dart';
@@ -22,7 +22,6 @@ class User with _$User {
     @Default(true) bool active,
     @Default(false) bool admin,
     @Default(false) bool emailConfirmed,
-    // ignore: invalid_annotation_target
     @Default('') @JsonKey(includeToJson: false) String password,
   }) = _User;
 

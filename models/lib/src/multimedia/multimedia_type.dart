@@ -1,4 +1,4 @@
-/// [Multimedia] type definition
+/// Multimedia type definition
 /// video, image, audio, url.
 enum MultimediaType {
   /// video
