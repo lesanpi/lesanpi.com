@@ -4,3 +4,4 @@
 mason-lock.json
 .fvm/flutter_sdk
 .idea/
+*.env
