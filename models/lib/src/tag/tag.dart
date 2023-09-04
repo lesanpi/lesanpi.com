@@ -1,5 +1,4 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:models/src/serializers/date_time_converter.dart';
 import 'package:typedefs/typedefs.dart';
 
 part 'tag.freezed.dart';
@@ -15,8 +14,6 @@ class Tag with _$Tag {
     required TagId id,
     required String name,
     required String color,
-    @DateTimeConverter() required DateTime createdAt,
-    @DateTimeConverterNullable() DateTime? updatedAt,
     @Default(true) bool active,
   }) = _Tag;
 

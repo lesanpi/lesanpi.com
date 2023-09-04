@@ -1,6 +1,5 @@
+import 'package:backend/db/database_connection.dart';
 import 'package:dart_frog/dart_frog.dart';
-
-import '../db/database_connection.dart';
 
 Future<Response> onRequest(RequestContext context) async {
   final connection = context.read<DatabaseConnection>();

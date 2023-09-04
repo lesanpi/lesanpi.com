@@ -10,3 +10,11 @@ dev_dependencies:
   mocktail: ^0.3.0
   test: ^1.19.2
   very_good_analysis: ^5.0.0
+dependencies:
+  either_dart: ^1.0.0
+  exceptions:
+    path: ../exceptions
+  failures:
+    path: ../failures
+  mongo_dart: ^0.9.1
+    

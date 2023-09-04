@@ -23,10 +23,6 @@ mixin _$Tag {
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
-  @DateTimeConverter()
-  DateTime get createdAt => throw _privateConstructorUsedError;
-  @DateTimeConverterNullable()
-  DateTime? get updatedAt => throw _privateConstructorUsedError;
   bool get active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,13 +35,7 @@ abstract class $TagCopyWith<$Res> {
   factory $TagCopyWith(Tag value, $Res Function(Tag) then) =
       _$TagCopyWithImpl<$Res, Tag>;
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      String color,
-      @DateTimeConverter() DateTime createdAt,
-      @DateTimeConverterNullable() DateTime? updatedAt,
-      bool active});
+  $Res call({String id, String name, String color, bool active});
 }
 
 /// @nodoc
@@ -63,8 +53,6 @@ class _$TagCopyWithImpl<$Res, $Val extends Tag> implements $TagCopyWith<$Res> {
     Object? id = null,
     Object? name = null,
     Object? color = null,
-    Object? createdAt = null,
-    Object? updatedAt = freezed,
     Object? active = null,
   }) {
     return _then(_value.copyWith(
@@ -80,14 +68,6 @@ class _$TagCopyWithImpl<$Res, $Val extends Tag> implements $TagCopyWith<$Res> {
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -102,13 +82,7 @@ abstract class _$$_TagCopyWith<$Res> implements $TagCopyWith<$Res> {
       __$$_TagCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call(
-      {String id,
-      String name,
-      String color,
-      @DateTimeConverter() DateTime createdAt,
-      @DateTimeConverterNullable() DateTime? updatedAt,
-      bool active});
+  $Res call({String id, String name, String color, bool active});
 }
 
 /// @nodoc
@@ -123,8 +97,6 @@ class __$$_TagCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$_Tag>
     Object? id = null,
     Object? name = null,
     Object? color = null,
-    Object? createdAt = null,
-    Object? updatedAt = freezed,
     Object? active = null,
   }) {
     return _then(_$_Tag(
@@ -140,14 +112,6 @@ class __$$_TagCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$_Tag>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
-      createdAt: null == createdAt
-          ? _value.createdAt
-          : createdAt // ignore: cast_nullable_to_non_nullable
-              as DateTime,
-      updatedAt: freezed == updatedAt
-          ? _value.updatedAt
-          : updatedAt // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
       active: null == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
@@ -163,8 +127,6 @@ class _$_Tag implements _Tag {
       {required this.id,
       required this.name,
       required this.color,
-      @DateTimeConverter() required this.createdAt,
-      @DateTimeConverterNullable() this.updatedAt,
       this.active = true});
 
   factory _$_Tag.fromJson(Map<String, dynamic> json) => _$$_TagFromJson(json);
@@ -176,18 +138,12 @@ class _$_Tag implements _Tag {
   @override
   final String color;
   @override
-  @DateTimeConverter()
-  final DateTime createdAt;
-  @override
-  @DateTimeConverterNullable()
-  final DateTime? updatedAt;
-  @override
   @JsonKey()
   final bool active;
 
   @override
   String toString() {
-    return 'Tag(id: $id, name: $name, color: $color, createdAt: $createdAt, updatedAt: $updatedAt, active: $active)';
+    return 'Tag(id: $id, name: $name, color: $color, active: $active)';
   }
 
   @override
@@ -198,17 +154,12 @@ class _$_Tag implements _Tag {
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.color, color) || other.color == color) &&
-            (identical(other.createdAt, createdAt) ||
-                other.createdAt == createdAt) &&
-            (identical(other.updatedAt, updatedAt) ||
-                other.updatedAt == updatedAt) &&
             (identical(other.active, active) || other.active == active));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, name, color, createdAt, updatedAt, active);
+  int get hashCode => Object.hash(runtimeType, id, name, color, active);
 
   @JsonKey(ignore: true)
   @override
@@ -229,8 +180,6 @@ abstract class _Tag implements Tag {
       {required final String id,
       required final String name,
       required final String color,
-      @DateTimeConverter() required final DateTime createdAt,
-      @DateTimeConverterNullable() final DateTime? updatedAt,
       final bool active}) = _$_Tag;
 
   factory _Tag.fromJson(Map<String, dynamic> json) = _$_Tag.fromJson;
@@ -241,12 +190,6 @@ abstract class _Tag implements Tag {
   String get name;
   @override
   String get color;
-  @override
-  @DateTimeConverter()
-  DateTime get createdAt;
-  @override
-  @DateTimeConverterNullable()
-  DateTime? get updatedAt;
   @override
   bool get active;
   @override
