@@ -17,6 +17,7 @@ _$_CreatePostDto _$$_CreatePostDtoFromJson(Map<String, dynamic> json) =>
       sections: (json['sections'] as List<dynamic>)
           .map((e) => $enumDecode(_$PostSectionEnumEnumMap, e))
           .toList(),
+      active: json['active'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$_CreatePostDtoToJson(_$_CreatePostDto instance) =>
@@ -27,6 +28,7 @@ Map<String, dynamic> _$$_CreatePostDtoToJson(_$_CreatePostDto instance) =>
       'cover': instance.cover,
       'content': instance.content,
       'sections': instance.sections,
+      'active': instance.active,
     };
 
 const _$PostSectionEnumEnumMap = {

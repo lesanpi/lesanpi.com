@@ -26,6 +26,7 @@ mixin _$UpdatePostDto {
   CreateMultimediaDto? get cover => throw _privateConstructorUsedError;
   String? get content => throw _privateConstructorUsedError;
   List<PostSectionEnum>? get sections => throw _privateConstructorUsedError;
+  bool? get active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +46,8 @@ abstract class $UpdatePostDtoCopyWith<$Res> {
       String? user,
       CreateMultimediaDto? cover,
       String? content,
-      List<PostSectionEnum>? sections});
+      List<PostSectionEnum>? sections,
+      bool? active});
 
   $CreateMultimediaDtoCopyWith<$Res>? get cover;
 }
@@ -69,6 +71,7 @@ class _$UpdatePostDtoCopyWithImpl<$Res, $Val extends UpdatePostDto>
     Object? cover = freezed,
     Object? content = freezed,
     Object? sections = freezed,
+    Object? active = freezed,
   }) {
     return _then(_value.copyWith(
       title: freezed == title
@@ -95,6 +98,10 @@ class _$UpdatePostDtoCopyWithImpl<$Res, $Val extends UpdatePostDto>
           ? _value.sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PostSectionEnum>?,
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ) as $Val);
   }
 
@@ -125,7 +132,8 @@ abstract class _$$_UpdatePostDtoCopyWith<$Res>
       String? user,
       CreateMultimediaDto? cover,
       String? content,
-      List<PostSectionEnum>? sections});
+      List<PostSectionEnum>? sections,
+      bool? active});
 
   @override
   $CreateMultimediaDtoCopyWith<$Res>? get cover;
@@ -148,6 +156,7 @@ class __$$_UpdatePostDtoCopyWithImpl<$Res>
     Object? cover = freezed,
     Object? content = freezed,
     Object? sections = freezed,
+    Object? active = freezed,
   }) {
     return _then(_$_UpdatePostDto(
       title: freezed == title
@@ -174,6 +183,10 @@ class __$$_UpdatePostDtoCopyWithImpl<$Res>
           ? _value._sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PostSectionEnum>?,
+      active: freezed == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -187,7 +200,8 @@ class _$_UpdatePostDto implements _UpdatePostDto {
       this.user,
       this.cover,
       this.content,
-      final List<PostSectionEnum>? sections})
+      final List<PostSectionEnum>? sections,
+      this.active})
       : _tags = tags,
         _sections = sections;
 
@@ -223,8 +237,11 @@ class _$_UpdatePostDto implements _UpdatePostDto {
   }
 
   @override
+  final bool? active;
+
+  @override
   String toString() {
-    return 'UpdatePostDto(title: $title, tags: $tags, user: $user, cover: $cover, content: $content, sections: $sections)';
+    return 'UpdatePostDto(title: $title, tags: $tags, user: $user, cover: $cover, content: $content, sections: $sections, active: $active)';
   }
 
   @override
@@ -237,7 +254,8 @@ class _$_UpdatePostDto implements _UpdatePostDto {
             (identical(other.user, user) || other.user == user) &&
             (identical(other.cover, cover) || other.cover == cover) &&
             (identical(other.content, content) || other.content == content) &&
-            const DeepCollectionEquality().equals(other._sections, _sections));
+            const DeepCollectionEquality().equals(other._sections, _sections) &&
+            (identical(other.active, active) || other.active == active));
   }
 
   @JsonKey(ignore: true)
@@ -249,7 +267,8 @@ class _$_UpdatePostDto implements _UpdatePostDto {
       user,
       cover,
       content,
-      const DeepCollectionEquality().hash(_sections));
+      const DeepCollectionEquality().hash(_sections),
+      active);
 
   @JsonKey(ignore: true)
   @override
@@ -272,7 +291,8 @@ abstract class _UpdatePostDto implements UpdatePostDto {
       final String? user,
       final CreateMultimediaDto? cover,
       final String? content,
-      final List<PostSectionEnum>? sections}) = _$_UpdatePostDto;
+      final List<PostSectionEnum>? sections,
+      final bool? active}) = _$_UpdatePostDto;
 
   factory _UpdatePostDto.fromJson(Map<String, dynamic> json) =
       _$_UpdatePostDto.fromJson;
@@ -289,6 +309,8 @@ abstract class _UpdatePostDto implements UpdatePostDto {
   String? get content;
   @override
   List<PostSectionEnum>? get sections;
+  @override
+  bool? get active;
   @override
   @JsonKey(ignore: true)
   _$$_UpdatePostDtoCopyWith<_$_UpdatePostDto> get copyWith =>

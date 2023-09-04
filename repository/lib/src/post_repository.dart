@@ -3,7 +3,7 @@ import 'package:failures/failures.dart';
 import 'package:models/models.dart';
 import 'package:typedefs/typedefs.dart';
 
-/// {@template user_repository}
+/// {@template post_repository}
 /// Base class for all post repositories.
 /// {@endtemplate}
 abstract class PostRepository {
@@ -11,7 +11,7 @@ abstract class PostRepository {
   Future<Either<Failure, Post>> getPostById(PostId id);
 
   /// Get all posts
-  Future<Either<Failure, List<Post>>> getAllPost();
+  Future<Either<Failure, List<Post>>> getAllPosts();
 
   /// Get all post with the tag [id]
   Future<Either<Failure, List<Post>>> getAllPostByTagId(TagId id);

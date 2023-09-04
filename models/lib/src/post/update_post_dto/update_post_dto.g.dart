@@ -18,6 +18,7 @@ _$_UpdatePostDto _$$_UpdatePostDtoFromJson(Map<String, dynamic> json) =>
       sections: (json['sections'] as List<dynamic>?)
           ?.map((e) => $enumDecode(_$PostSectionEnumEnumMap, e))
           .toList(),
+      active: json['active'] as bool?,
     );
 
 Map<String, dynamic> _$$_UpdatePostDtoToJson(_$_UpdatePostDto instance) =>
@@ -28,6 +29,7 @@ Map<String, dynamic> _$$_UpdatePostDtoToJson(_$_UpdatePostDto instance) =>
       'cover': instance.cover,
       'content': instance.content,
       'sections': instance.sections,
+      'active': instance.active,
     };
 
 const _$PostSectionEnumEnumMap = {

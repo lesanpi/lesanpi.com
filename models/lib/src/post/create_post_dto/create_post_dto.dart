@@ -21,6 +21,7 @@ class CreatePostDto with _$CreatePostDto {
     required CreateMultimediaDto cover,
     required String content,
     required List<PostSectionEnum> sections,
+    @Default(true) bool active,
   }) = _CreatePostDto;
 
   /// Creates a CreatePostDto from Json map

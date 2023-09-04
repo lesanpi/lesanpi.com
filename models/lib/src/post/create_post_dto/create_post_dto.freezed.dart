@@ -26,6 +26,7 @@ mixin _$CreatePostDto {
   CreateMultimediaDto get cover => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   List<PostSectionEnum> get sections => throw _privateConstructorUsedError;
+  bool get active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -45,7 +46,8 @@ abstract class $CreatePostDtoCopyWith<$Res> {
       String user,
       CreateMultimediaDto cover,
       String content,
-      List<PostSectionEnum> sections});
+      List<PostSectionEnum> sections,
+      bool active});
 
   $CreateMultimediaDtoCopyWith<$Res> get cover;
 }
@@ -69,6 +71,7 @@ class _$CreatePostDtoCopyWithImpl<$Res, $Val extends CreatePostDto>
     Object? cover = null,
     Object? content = null,
     Object? sections = null,
+    Object? active = null,
   }) {
     return _then(_value.copyWith(
       title: null == title
@@ -95,6 +98,10 @@ class _$CreatePostDtoCopyWithImpl<$Res, $Val extends CreatePostDto>
           ? _value.sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PostSectionEnum>,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 
@@ -121,7 +128,8 @@ abstract class _$$_CreatePostDtoCopyWith<$Res>
       String user,
       CreateMultimediaDto cover,
       String content,
-      List<PostSectionEnum> sections});
+      List<PostSectionEnum> sections,
+      bool active});
 
   @override
   $CreateMultimediaDtoCopyWith<$Res> get cover;
@@ -144,6 +152,7 @@ class __$$_CreatePostDtoCopyWithImpl<$Res>
     Object? cover = null,
     Object? content = null,
     Object? sections = null,
+    Object? active = null,
   }) {
     return _then(_$_CreatePostDto(
       title: null == title
@@ -170,6 +179,10 @@ class __$$_CreatePostDtoCopyWithImpl<$Res>
           ? _value._sections
           : sections // ignore: cast_nullable_to_non_nullable
               as List<PostSectionEnum>,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -183,7 +196,8 @@ class _$_CreatePostDto implements _CreatePostDto {
       required this.user,
       required this.cover,
       required this.content,
-      required final List<PostSectionEnum> sections})
+      required final List<PostSectionEnum> sections,
+      this.active = true})
       : _tags = tags,
         _sections = sections;
 
@@ -215,8 +229,12 @@ class _$_CreatePostDto implements _CreatePostDto {
   }
 
   @override
+  @JsonKey()
+  final bool active;
+
+  @override
   String toString() {
-    return 'CreatePostDto(title: $title, tags: $tags, user: $user, cover: $cover, content: $content, sections: $sections)';
+    return 'CreatePostDto(title: $title, tags: $tags, user: $user, cover: $cover, content: $content, sections: $sections, active: $active)';
   }
 
   @override
@@ -229,7 +247,8 @@ class _$_CreatePostDto implements _CreatePostDto {
             (identical(other.user, user) || other.user == user) &&
             (identical(other.cover, cover) || other.cover == cover) &&
             (identical(other.content, content) || other.content == content) &&
-            const DeepCollectionEquality().equals(other._sections, _sections));
+            const DeepCollectionEquality().equals(other._sections, _sections) &&
+            (identical(other.active, active) || other.active == active));
   }
 
   @JsonKey(ignore: true)
@@ -241,7 +260,8 @@ class _$_CreatePostDto implements _CreatePostDto {
       user,
       cover,
       content,
-      const DeepCollectionEquality().hash(_sections));
+      const DeepCollectionEquality().hash(_sections),
+      active);
 
   @JsonKey(ignore: true)
   @override
@@ -264,7 +284,8 @@ abstract class _CreatePostDto implements CreatePostDto {
       required final String user,
       required final CreateMultimediaDto cover,
       required final String content,
-      required final List<PostSectionEnum> sections}) = _$_CreatePostDto;
+      required final List<PostSectionEnum> sections,
+      final bool active}) = _$_CreatePostDto;
 
   factory _CreatePostDto.fromJson(Map<String, dynamic> json) =
       _$_CreatePostDto.fromJson;
@@ -281,6 +302,8 @@ abstract class _CreatePostDto implements CreatePostDto {
   String get content;
   @override
   List<PostSectionEnum> get sections;
+  @override
+  bool get active;
   @override
   @JsonKey(ignore: true)
   _$$_CreatePostDtoCopyWith<_$_CreatePostDto> get copyWith =>

@@ -21,6 +21,7 @@ class UpdatePostDto with _$UpdatePostDto {
     CreateMultimediaDto? cover,
     String? content,
     List<PostSectionEnum>? sections,
+    bool? active,
   }) = _UpdatePostDto;
 
   /// Creates a UpdatePostDto from Json map
