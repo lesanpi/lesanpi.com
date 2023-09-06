@@ -23,7 +23,7 @@ class User with _$User {
     @Default(true) bool active,
     @Default(false) bool admin,
     @Default(false) bool emailConfirmed,
-    @Default('') @JsonKey(includeToJson: false) String password,
+    @Default('') String password,
   }) = _User;
 
   /// Creates a User from Json map
