@@ -1,5 +1,13 @@
+import 'dart:async';
+
+import 'package:backend/request_handlers/not_allowed_request_handler.dart';
+import 'package:backend/user/user_controller.dart';
 import 'package:dart_frog/dart_frog.dart';
 
-Response onRequest(RequestContext context) {
-  return Response(body: 'This is a new route!');
+FutureOr<Response> onRequest(RequestContext context) {
+  final userController = context.read<UserController>();
+  if (context.request.method != HttpMethod.post) {
+    return notAllowedRequestHandler(context);
+  }
+  return userController.signUp(context.request);
 }

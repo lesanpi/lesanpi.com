@@ -1,4 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
+import 'dart:developer';
+
 import 'package:backend/db/database_connection.dart';
 import 'package:data_source/data_source.dart';
 import 'package:exceptions/exceptions.dart';
@@ -13,9 +15,28 @@ class UserDataSourceImpl extends UserDataSource {
   final DatabaseConnection _databaseConnection;
 
   @override
-  Future<User> createUser(CreateUserDto user) {
-    // TODO: implement createUser
-    throw UnimplementedError();
+  Future<User> createUser(CreateUserDto user) async {
+    try {
+      await _databaseConnection.connect();
+      final collection = _databaseConnection.db.collection('users');
+      final result = await collection.insertOne(user.toJson());
+      final tagDocument = result.document ?? {};
+      final id = mapObjectId<UserId>(tagDocument['_id']);
+      if (id.isLeft) {
+        throw ServerException('Unexpected error: ${id.left.message}');
+      }
+      tagDocument['_id'] = id.right;
+      return User.fromJson({
+        ...tagDocument,
+        'active': true,
+        'createdAt': DateTime.now().toIso8601String(),
+        'updatedAt': null,
+      });
+    } catch (e) {
+      throw ServerException('Unexpected error: $e');
+    } finally {
+      await _databaseConnection.close();
+    }
   }
 
   @override

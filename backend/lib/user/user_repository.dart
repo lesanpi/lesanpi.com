@@ -21,9 +21,27 @@ class UserRepositoryImpl extends UserRepository {
   final PasswordHasherService passwordHasherService;
 
   @override
-  Future<Either<Failure, User>> createUser(CreateUserDto createUserDto) {
-    // TODO: implement createUser
-    throw UnimplementedError();
+  Future<Either<Failure, User>> createUser(CreateUserDto createUserDto) async {
+    final email = createUserDto.email;
+    final userFound = await getUserByEmail(email);
+    if (userFound.isRight) {
+      throw ServerException('Already user with email $email');
+    }
+    try {
+      final user = await dataSource.createUser(createUserDto);
+      return Right(user);
+    } catch (e) {
+      log(
+        e.toString(),
+        error: e,
+      );
+      return const Left(
+        ServerFailure(
+          message: 'Error creating user',
+          statusCode: HttpStatus.unauthorized,
+        ),
+      );
+    }
   }
 
   @override
@@ -38,7 +56,7 @@ class UserRepositoryImpl extends UserRepository {
       );
       return const Left(
         ServerFailure(
-          message: 'Invalid email or password',
+          message: 'No user found',
           statusCode: HttpStatus.unauthorized,
         ),
       );

@@ -4,6 +4,7 @@ import 'package:failures/failures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:models/src/multimedia/create_multimedia_dto/create_multimedia_dto.dart';
 import 'package:models/src/multimedia/multimedia.dart';
+import 'package:models/src/serializers/date_time_converter.dart';
 
 part 'create_user_dto.freezed.dart';
 part 'create_user_dto.g.dart';
@@ -36,6 +37,7 @@ class CreateUserDto with _$CreateUserDto {
       final lastname = json['lastname'] as String? ?? '';
       final password = json['password'] as String? ?? '';
       final email = json['email'] as String? ?? '';
+      final photoValue = json['photo'];
       final photo = CreateMultimediaDto.validated(
         json['photo'] as Map<String, dynamic>? ?? {},
       );
@@ -51,7 +53,7 @@ class CreateUserDto with _$CreateUserDto {
       if (email.isEmpty) {
         errors['email'] = ['Email is required'];
       }
-      if (photo.isLeft) {
+      if (photo.isLeft && photoValue is Map<String, dynamic>) {
         errors['photo'] = [photo.left.message];
       }
       if (errors.isEmpty) return Right(CreateUserDto.fromJson(json));

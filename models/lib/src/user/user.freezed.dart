@@ -24,7 +24,7 @@ mixin _$User {
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get lastname => throw _privateConstructorUsedError;
-  Multimedia get photo => throw _privateConstructorUsedError;
+  Multimedia? get photo => throw _privateConstructorUsedError;
   @DateTimeConverter()
   DateTime get createdAt => throw _privateConstructorUsedError;
   @DateTimeConverterNullable()
@@ -32,7 +32,6 @@ mixin _$User {
   bool get active => throw _privateConstructorUsedError;
   bool get admin => throw _privateConstructorUsedError;
   bool get emailConfirmed => throw _privateConstructorUsedError;
-  @JsonKey(includeToJson: false)
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -50,15 +49,15 @@ abstract class $UserCopyWith<$Res> {
       String email,
       String name,
       String lastname,
-      Multimedia photo,
+      Multimedia? photo,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverterNullable() DateTime? updatedAt,
       bool active,
       bool admin,
       bool emailConfirmed,
-      @JsonKey(includeToJson: false) String password});
+      String password});
 
-  $MultimediaCopyWith<$Res> get photo;
+  $MultimediaCopyWith<$Res>? get photo;
 }
 
 /// @nodoc
@@ -78,7 +77,7 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? email = null,
     Object? name = null,
     Object? lastname = null,
-    Object? photo = null,
+    Object? photo = freezed,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? active = null,
@@ -103,10 +102,10 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: null == photo
+      photo: freezed == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
-              as Multimedia,
+              as Multimedia?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -136,8 +135,12 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
 
   @override
   @pragma('vm:prefer-inline')
-  $MultimediaCopyWith<$Res> get photo {
-    return $MultimediaCopyWith<$Res>(_value.photo, (value) {
+  $MultimediaCopyWith<$Res>? get photo {
+    if (_value.photo == null) {
+      return null;
+    }
+
+    return $MultimediaCopyWith<$Res>(_value.photo!, (value) {
       return _then(_value.copyWith(photo: value) as $Val);
     });
   }
@@ -154,16 +157,16 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
       String email,
       String name,
       String lastname,
-      Multimedia photo,
+      Multimedia? photo,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverterNullable() DateTime? updatedAt,
       bool active,
       bool admin,
       bool emailConfirmed,
-      @JsonKey(includeToJson: false) String password});
+      String password});
 
   @override
-  $MultimediaCopyWith<$Res> get photo;
+  $MultimediaCopyWith<$Res>? get photo;
 }
 
 /// @nodoc
@@ -179,7 +182,7 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? email = null,
     Object? name = null,
     Object? lastname = null,
-    Object? photo = null,
+    Object? photo = freezed,
     Object? createdAt = null,
     Object? updatedAt = freezed,
     Object? active = null,
@@ -204,10 +207,10 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.lastname
           : lastname // ignore: cast_nullable_to_non_nullable
               as String,
-      photo: null == photo
+      photo: freezed == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
-              as Multimedia,
+              as Multimedia?,
       createdAt: null == createdAt
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
@@ -250,7 +253,7 @@ class _$_User implements _User {
       this.active = true,
       this.admin = false,
       this.emailConfirmed = false,
-      @JsonKey(includeToJson: false) this.password = ''});
+      this.password = ''});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
@@ -263,7 +266,7 @@ class _$_User implements _User {
   @override
   final String lastname;
   @override
-  final Multimedia photo;
+  final Multimedia? photo;
   @override
   @DateTimeConverter()
   final DateTime createdAt;
@@ -280,7 +283,7 @@ class _$_User implements _User {
   @JsonKey()
   final bool emailConfirmed;
   @override
-  @JsonKey(includeToJson: false)
+  @JsonKey()
   final String password;
 
   @override
@@ -336,13 +339,13 @@ abstract class _User implements User {
       required final String email,
       required final String name,
       required final String lastname,
-      required final Multimedia photo,
+      required final Multimedia? photo,
       @DateTimeConverter() required final DateTime createdAt,
       @DateTimeConverterNullable() required final DateTime? updatedAt,
       final bool active,
       final bool admin,
       final bool emailConfirmed,
-      @JsonKey(includeToJson: false) final String password}) = _$_User;
+      final String password}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
@@ -355,7 +358,7 @@ abstract class _User implements User {
   @override
   String get lastname;
   @override
-  Multimedia get photo;
+  Multimedia? get photo;
   @override
   @DateTimeConverter()
   DateTime get createdAt;
@@ -369,7 +372,6 @@ abstract class _User implements User {
   @override
   bool get emailConfirmed;
   @override
-  @JsonKey(includeToJson: false)
   String get password;
   @override
   @JsonKey(ignore: true)

@@ -52,6 +52,37 @@ class UserController extends HttpController {
     );
   }
 
+  /// Sign up user
+  FutureOr<Response> signUp(Request request) async {
+    final parsedBody = await parseJson(request);
+    if (parsedBody.isLeft) {
+      return Response.json(
+        body: {'message': parsedBody.left.message},
+        statusCode: parsedBody.left.statusCode,
+      );
+    }
+    final json = parsedBody.right;
+    final createUserDto = CreateUserDto.validated(json);
+    if (createUserDto.isLeft) {
+      return Response.json(
+        body: {
+          'message': createUserDto.left.message,
+          'errors': createUserDto.left.errors,
+        },
+        statusCode: createUserDto.left.statusCode,
+      );
+    }
+
+    final res = await _repo.createUser(createUserDto.right);
+    return res.fold(
+      (left) => Response.json(
+        body: {'message': left.message},
+        statusCode: left.statusCode,
+      ),
+      _signAndSendToken,
+    );
+  }
+
   Response _signAndSendToken(User user, [int? httpStatus]) {
     final token = _jwtService.sign(user.toJson());
     return Response.json(

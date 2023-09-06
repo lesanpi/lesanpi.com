@@ -17,7 +17,7 @@ class User with _$User {
     required String email,
     required String name,
     required String lastname,
-    required Multimedia photo,
+    required Multimedia? photo,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverterNullable() required DateTime? updatedAt,
     @Default(true) bool active,

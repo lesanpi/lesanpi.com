@@ -7,11 +7,13 @@ part of 'user.dart';
 // **************************************************************************
 
 _$_User _$$_UserFromJson(Map<String, dynamic> json) => _$_User(
-      id: json['id'] as String,
+      id: json['_id'] as String,
       email: json['email'] as String,
       name: json['name'] as String,
       lastname: json['lastname'] as String,
-      photo: Multimedia.fromJson(json['photo'] as Map<String, dynamic>),
+      photo: json['photo'] == null
+          ? null
+          : Multimedia.fromJson(json['photo'] as Map<String, dynamic>),
       createdAt: const DateTimeConverter().fromJson(json['createdAt']),
       updatedAt: const DateTimeConverterNullable().fromJson(json['updatedAt']),
       active: json['active'] as bool? ?? true,
@@ -31,4 +33,5 @@ Map<String, dynamic> _$$_UserToJson(_$_User instance) => <String, dynamic>{
       'active': instance.active,
       'admin': instance.admin,
       'emailConfirmed': instance.emailConfirmed,
+      'password': instance.password,
     };
