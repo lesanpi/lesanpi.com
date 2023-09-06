@@ -1,4 +1,4 @@
-# melos_managed_dependency_overrides: exceptions,failures,models,typedefs
+# melos_managed_dependency_overrides: exceptions,failures,models,typedefs,repository
 dependency_overrides:
   exceptions:
     path: ../exceptions
@@ -6,5 +6,7 @@ dependency_overrides:
     path: ../failures
   models:
     path: ../models
+  repository:
+    path: ../repository
   typedefs:
     path: ../typedefs

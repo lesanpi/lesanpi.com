@@ -1,6 +1,5 @@
 import 'dart:developer';
 
-import 'package:dotenv/src/dotenv.dart';
 import 'package:mongo_dart/mongo_dart.dart';
 
 /// {@template database_connection}

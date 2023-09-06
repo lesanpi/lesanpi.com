@@ -8,6 +8,7 @@ environment:
 
 dependencies:
   dart_frog: ^1.0.0
+  dart_jsonwebtoken: ^2.11.0
   data_source:
     path: ../data_source
   dotenv: ^4.1.0

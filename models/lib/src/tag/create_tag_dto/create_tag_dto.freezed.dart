@@ -22,6 +22,7 @@ CreateTagDto _$CreateTagDtoFromJson(Map<String, dynamic> json) {
 mixin _$CreateTagDto {
   String get name => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
+  bool get active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -35,7 +36,7 @@ abstract class $CreateTagDtoCopyWith<$Res> {
           CreateTagDto value, $Res Function(CreateTagDto) then) =
       _$CreateTagDtoCopyWithImpl<$Res, CreateTagDto>;
   @useResult
-  $Res call({String name, String color});
+  $Res call({String name, String color, bool active});
 }
 
 /// @nodoc
@@ -53,6 +54,7 @@ class _$CreateTagDtoCopyWithImpl<$Res, $Val extends CreateTagDto>
   $Res call({
     Object? name = null,
     Object? color = null,
+    Object? active = null,
   }) {
     return _then(_value.copyWith(
       name: null == name
@@ -63,6 +65,10 @@ class _$CreateTagDtoCopyWithImpl<$Res, $Val extends CreateTagDto>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -75,7 +81,7 @@ abstract class _$$_CreateTagDtoCopyWith<$Res>
       __$$_CreateTagDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String name, String color});
+  $Res call({String name, String color, bool active});
 }
 
 /// @nodoc
@@ -91,6 +97,7 @@ class __$$_CreateTagDtoCopyWithImpl<$Res>
   $Res call({
     Object? name = null,
     Object? color = null,
+    Object? active = null,
   }) {
     return _then(_$_CreateTagDto(
       name: null == name
@@ -101,6 +108,10 @@ class __$$_CreateTagDtoCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -108,7 +119,8 @@ class __$$_CreateTagDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_CreateTagDto implements _CreateTagDto {
-  const _$_CreateTagDto({required this.name, required this.color});
+  const _$_CreateTagDto(
+      {required this.name, required this.color, this.active = true});
 
   factory _$_CreateTagDto.fromJson(Map<String, dynamic> json) =>
       _$$_CreateTagDtoFromJson(json);
@@ -117,10 +129,13 @@ class _$_CreateTagDto implements _CreateTagDto {
   final String name;
   @override
   final String color;
+  @override
+  @JsonKey()
+  final bool active;
 
   @override
   String toString() {
-    return 'CreateTagDto(name: $name, color: $color)';
+    return 'CreateTagDto(name: $name, color: $color, active: $active)';
   }
 
   @override
@@ -129,12 +144,13 @@ class _$_CreateTagDto implements _CreateTagDto {
         (other.runtimeType == runtimeType &&
             other is _$_CreateTagDto &&
             (identical(other.name, name) || other.name == name) &&
-            (identical(other.color, color) || other.color == color));
+            (identical(other.color, color) || other.color == color) &&
+            (identical(other.active, active) || other.active == active));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, name, color);
+  int get hashCode => Object.hash(runtimeType, name, color, active);
 
   @JsonKey(ignore: true)
   @override
@@ -153,7 +169,8 @@ class _$_CreateTagDto implements _CreateTagDto {
 abstract class _CreateTagDto implements CreateTagDto {
   const factory _CreateTagDto(
       {required final String name,
-      required final String color}) = _$_CreateTagDto;
+      required final String color,
+      final bool active}) = _$_CreateTagDto;
 
   factory _CreateTagDto.fromJson(Map<String, dynamic> json) =
       _$_CreateTagDto.fromJson;
@@ -162,6 +179,8 @@ abstract class _CreateTagDto implements CreateTagDto {
   String get name;
   @override
   String get color;
+  @override
+  bool get active;
   @override
   @JsonKey(ignore: true)
   _$$_CreateTagDtoCopyWith<_$_CreateTagDto> get copyWith =>

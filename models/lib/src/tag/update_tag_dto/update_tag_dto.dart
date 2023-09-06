@@ -16,6 +16,7 @@ class UpdateTagDto with _$UpdateTagDto {
   const factory UpdateTagDto({
     String? name,
     String? color,
+    @Default(true) bool active,
   }) = _UpdateTagDto;
 
   /// Creates a UpdateTagDto from Json map

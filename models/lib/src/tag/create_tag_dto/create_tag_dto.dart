@@ -16,6 +16,7 @@ class CreateTagDto with _$CreateTagDto {
   const factory CreateTagDto({
     required String name,
     required String color,
+    @Default(true) bool active,
   }) = _CreateTagDto;
 
   /// Creates a CreateTagDto from Json map
