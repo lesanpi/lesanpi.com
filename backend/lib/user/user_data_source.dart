@@ -19,19 +19,19 @@ class UserDataSourceImpl extends UserDataSource {
     try {
       await _databaseConnection.connect();
       final collection = _databaseConnection.db.collection('users');
-      final result = await collection.insertOne(user.toJson());
+      final result = await collection.insertOne({
+        ...user.toJson(),
+        'active': true,
+        'createdAt': DateTime.now().toIso8601String(),
+        'updatedAt': null,
+      });
       final tagDocument = result.document ?? {};
       final id = mapObjectId<UserId>(tagDocument['_id']);
       if (id.isLeft) {
         throw ServerException('Unexpected error: ${id.left.message}');
       }
       tagDocument['_id'] = id.right;
-      return User.fromJson({
-        ...tagDocument,
-        'active': true,
-        'createdAt': DateTime.now().toIso8601String(),
-        'updatedAt': null,
-      });
+      return User.fromJson(tagDocument);
     } catch (e) {
       throw ServerException('Unexpected error: $e');
     } finally {
@@ -46,6 +46,7 @@ class UserDataSourceImpl extends UserDataSource {
       final collection = _databaseConnection.db.collection('users');
       final result = await collection.findOne(where.eq('email', email));
       final userDocument = result ?? {};
+      print('Result $result');
       final id = mapObjectId<UserId>(userDocument['_id']);
       if (id.isLeft) {
         throw ServerException('Unexpected error: ${id.left.message}');
@@ -53,7 +54,9 @@ class UserDataSourceImpl extends UserDataSource {
       userDocument['_id'] = id.right;
 
       return User.fromJson(userDocument);
-    } catch (e) {
+    } catch (e, s) {
+      print('Error getUserByEmail $e $s');
+
       throw ServerException('Unexpected error: $e');
     } finally {
       await _databaseConnection.close();
