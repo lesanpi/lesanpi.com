@@ -1,6 +1,7 @@
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:backend/services/jwt_service.dart';
 import 'package:backend/services/password_hasher_service.dart';
 import 'package:data_source/data_source.dart';
 import 'package:either_dart/either.dart';
@@ -12,13 +13,20 @@ import 'package:typedefs/typedefs.dart';
 
 class UserRepositoryImpl extends UserRepository {
   /// {@macro user_repository_impl}
-  UserRepositoryImpl(this.dataSource, this.passwordHasherService);
+  UserRepositoryImpl(
+    this.dataSource,
+    this.passwordHasherService,
+    this.jwtService,
+  );
 
   /// The data source used to perform CRUD operations
   final UserDataSource dataSource;
 
   /// The password hasher service used to hash and check passwords
   final PasswordHasherService passwordHasherService;
+
+  /// The jwt service used to get and check token
+  final JWTService jwtService;
 
   @override
   Future<Either<Failure, User>> createUser(CreateUserDto createUserDto) async {
@@ -34,7 +42,17 @@ class UserRepositoryImpl extends UserRepository {
           ),
         );
       }
-      final user = await dataSource.createUser(createUserDto);
+      final hashedPassword = passwordHasherService.hashPassword(
+        createUserDto.password,
+      );
+      final user = await dataSource.createUser(
+        createUserDto.copyWith(
+          password: hashedPassword,
+          createdAt: DateTime.now(),
+          active: true,
+          admin: false,
+        ),
+      );
       return Right(user);
     } catch (e) {
       return const Left(
@@ -66,9 +84,18 @@ class UserRepositoryImpl extends UserRepository {
   }
 
   @override
-  Future<Either<Failure, User>> getUserById(UserId id) {
-    // TODO: implement getUserById
-    throw UnimplementedError();
+  Future<Either<Failure, User>> getUserById(UserId id) async {
+    try {
+      final user = await dataSource.getUserById(id);
+      return Right(user);
+    } catch (e) {
+      return const Left(
+        ServerFailure(
+          message: 'Error fetching user',
+          statusCode: HttpStatus.unauthorized,
+        ),
+      );
+    }
   }
 
   @override
@@ -108,5 +135,40 @@ class UserRepositoryImpl extends UserRepository {
   }) {
     // TODO: implement updateUserInfo
     throw UnimplementedError();
+  }
+
+  @override
+  Future<Either<Failure, User>> getUserByToken(String token) async {
+    try {
+      if (token.isEmpty) throw const UnauthorizedException();
+      final decoded = jwtService.verify(token);
+      print('decoded $decoded');
+      final decodedUser = User.fromJson(decoded);
+      final user = await getUserById(decodedUser.id);
+      print('UserRepository: user $user');
+
+      if (user.isLeft) {
+        print('UserRepository: left ${user.left}');
+
+        return Left(user.left);
+      }
+      print('UserRepository: rigth ${user.right}');
+
+      return Right(user.right);
+    } on HttpException catch (e) {
+      return Left(
+        ServerFailure(
+          message: e.message,
+          statusCode: e.statusCode,
+        ),
+      );
+    } catch (e) {
+      return const Left(
+        ServerFailure(
+          message: 'Invalid token',
+          statusCode: HttpStatus.forbidden,
+        ),
+      );
+    }
   }
 }

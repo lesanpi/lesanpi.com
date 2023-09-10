@@ -21,9 +21,6 @@ class UserDataSourceImpl extends UserDataSource {
       final collection = _databaseConnection.db.collection('users');
       final result = await collection.insertOne({
         ...user.toJson(),
-        'active': true,
-        'createdAt': DateTime.now().toIso8601String(),
-        'updatedAt': null,
       });
       final tagDocument = result.document ?? {};
       final id = mapObjectId<UserId>(tagDocument['_id']);
@@ -46,7 +43,6 @@ class UserDataSourceImpl extends UserDataSource {
       final collection = _databaseConnection.db.collection('users');
       final result = await collection.findOne(where.eq('email', email));
       final userDocument = result ?? {};
-      print('Result $result');
       final id = mapObjectId<UserId>(userDocument['_id']);
       if (id.isLeft) {
         throw ServerException('Unexpected error: ${id.left.message}');
@@ -54,9 +50,7 @@ class UserDataSourceImpl extends UserDataSource {
       userDocument['_id'] = id.right;
 
       return User.fromJson(userDocument);
-    } catch (e, s) {
-      print('Error getUserByEmail $e $s');
-
+    } catch (e) {
       throw ServerException('Unexpected error: $e');
     } finally {
       await _databaseConnection.close();
@@ -64,9 +58,30 @@ class UserDataSourceImpl extends UserDataSource {
   }
 
   @override
-  Future<User> getUserById(UserId id) {
-    // TODO: implement getUserById
-    throw UnimplementedError();
+  Future<User> getUserById(UserId id) async {
+    try {
+      await _databaseConnection.connect();
+      final collection = _databaseConnection.db.collection('users');
+      final result =
+          await collection.findOne(where.id(ObjectId.fromHexString(id)));
+      final userDocument = result ?? {};
+
+      final userId = mapObjectId<UserId>(userDocument['_id']);
+      if (userId.isLeft) {
+        throw ServerException('Unexpected error: ${userId.left.message}');
+      }
+      userDocument['_id'] = userId.right;
+
+      final user = User.fromJson(userDocument);
+      print('UserDataSource user $user');
+      return user;
+    } catch (e) {
+      print('UserDataSource user $e');
+
+      throw ServerException('Unexpected error: $e');
+    } finally {
+      await _databaseConnection.close();
+    }
   }
 
   @override

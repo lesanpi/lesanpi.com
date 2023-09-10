@@ -13,8 +13,8 @@ final env = DotEnv()..load(['variables.env']);
 final _db = DatabaseConnection(dbUrl: env['DB_URL'] ?? '');
 final _userDs = UserDataSourceImpl(databaseConnection: _db);
 const _passwordHasher = PasswordHasherService();
-final _userRepo = UserRepositoryImpl(_userDs, _passwordHasher);
 final _jwtService = JWTService(env);
+final _userRepo = UserRepositoryImpl(_userDs, _passwordHasher, _jwtService);
 final _userController = UserController(_userRepo, _jwtService);
 
 Handler middleware(Handler handler) {
