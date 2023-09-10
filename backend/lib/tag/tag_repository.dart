@@ -39,6 +39,8 @@ class TagRepositoryImpl extends TagRepository {
       if (exists.isLeft) return Left(exists.left);
       final result = await dataSource.deleteTagById(id: id);
       return Right(result);
+    } on HttpException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
     } on ServerException catch (e) {
       return Left(
         ServerFailure(message: e.message),
@@ -63,6 +65,8 @@ class TagRepositoryImpl extends TagRepository {
     try {
       final tags = await dataSource.getTagById(id);
       return Right(tags);
+    } on HttpException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
     } on ServerException catch (e) {
       return Left(
         ServerFailure(message: e.message),
@@ -74,8 +78,21 @@ class TagRepositoryImpl extends TagRepository {
   Future<Either<Failure, Tag>> updateTag({
     required TagId id,
     required UpdateTagDto updateTagDto,
-  }) {
-    // TODO: implement updateTag
-    throw UnimplementedError();
+  }) async {
+    try {
+      final tag = await getTagById(id);
+      if (tag.isLeft) return tag;
+      final tags = await dataSource.updateTag(
+        id: id,
+        tag: updateTagDto.copyFromTag(tag.right),
+      );
+      return Right(tags);
+    } on HttpException catch (e) {
+      return Left(ServerFailure(message: e.message, statusCode: e.statusCode));
+    } on ServerException catch (e) {
+      return Left(
+        ServerFailure(message: e.message),
+      );
+    }
   }
 }

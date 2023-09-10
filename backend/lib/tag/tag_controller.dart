@@ -31,6 +31,43 @@ class TagController extends HttpController {
   }
 
   @override
+  FutureOr<Response> update(Request request, String id) async {
+    final parsedBody = await parseJson(request);
+    if (parsedBody.isLeft) {
+      return Response.json(
+        body: {'message': parsedBody.left.message},
+        statusCode: parsedBody.left.statusCode,
+      );
+    }
+    final json = parsedBody.right;
+    final updateTagDto = UpdateTagDto.validated(json);
+    if (updateTagDto.isLeft) {
+      return Response.json(
+        body: {
+          'message': updateTagDto.left.message,
+          'errors': updateTagDto.left.errors,
+        },
+        statusCode: updateTagDto.left.statusCode,
+      );
+    }
+    final result = await _repo.updateTag(
+      id: id,
+      updateTagDto: updateTagDto.right,
+    );
+    return result.fold(
+      (left) => Response.json(
+        body: {
+          'message': left.message,
+          'success': false,
+        },
+      ),
+      (right) => Response.json(
+        body: right.toJson(),
+      ),
+    );
+  }
+
+  @override
   FutureOr<Response> store(Request request) async {
     final parsedBody = await parseJson(request);
     if (parsedBody.isLeft) {

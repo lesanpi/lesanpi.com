@@ -20,9 +20,12 @@ UpdateTagDto _$UpdateTagDtoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UpdateTagDto {
+  @JsonKey(includeIfNull: false)
   String? get name => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
   String? get color => throw _privateConstructorUsedError;
-  bool get active => throw _privateConstructorUsedError;
+  @JsonKey(includeIfNull: false)
+  bool? get active => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -36,7 +39,10 @@ abstract class $UpdateTagDtoCopyWith<$Res> {
           UpdateTagDto value, $Res Function(UpdateTagDto) then) =
       _$UpdateTagDtoCopyWithImpl<$Res, UpdateTagDto>;
   @useResult
-  $Res call({String? name, String? color, bool active});
+  $Res call(
+      {@JsonKey(includeIfNull: false) String? name,
+      @JsonKey(includeIfNull: false) String? color,
+      @JsonKey(includeIfNull: false) bool? active});
 }
 
 /// @nodoc
@@ -54,7 +60,7 @@ class _$UpdateTagDtoCopyWithImpl<$Res, $Val extends UpdateTagDto>
   $Res call({
     Object? name = freezed,
     Object? color = freezed,
-    Object? active = null,
+    Object? active = freezed,
   }) {
     return _then(_value.copyWith(
       name: freezed == name
@@ -65,10 +71,10 @@ class _$UpdateTagDtoCopyWithImpl<$Res, $Val extends UpdateTagDto>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
-      active: null == active
+      active: freezed == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ) as $Val);
   }
 }
@@ -81,7 +87,10 @@ abstract class _$$_UpdateTagDtoCopyWith<$Res>
       __$$_UpdateTagDtoCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? name, String? color, bool active});
+  $Res call(
+      {@JsonKey(includeIfNull: false) String? name,
+      @JsonKey(includeIfNull: false) String? color,
+      @JsonKey(includeIfNull: false) bool? active});
 }
 
 /// @nodoc
@@ -97,7 +106,7 @@ class __$$_UpdateTagDtoCopyWithImpl<$Res>
   $Res call({
     Object? name = freezed,
     Object? color = freezed,
-    Object? active = null,
+    Object? active = freezed,
   }) {
     return _then(_$_UpdateTagDto(
       name: freezed == name
@@ -108,10 +117,10 @@ class __$$_UpdateTagDtoCopyWithImpl<$Res>
           ? _value.color
           : color // ignore: cast_nullable_to_non_nullable
               as String?,
-      active: null == active
+      active: freezed == active
           ? _value.active
           : active // ignore: cast_nullable_to_non_nullable
-              as bool,
+              as bool?,
     ));
   }
 }
@@ -119,18 +128,23 @@ class __$$_UpdateTagDtoCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_UpdateTagDto implements _UpdateTagDto {
-  const _$_UpdateTagDto({this.name, this.color, this.active = true});
+  const _$_UpdateTagDto(
+      {@JsonKey(includeIfNull: false) this.name,
+      @JsonKey(includeIfNull: false) this.color,
+      @JsonKey(includeIfNull: false) this.active});
 
   factory _$_UpdateTagDto.fromJson(Map<String, dynamic> json) =>
       _$$_UpdateTagDtoFromJson(json);
 
   @override
+  @JsonKey(includeIfNull: false)
   final String? name;
   @override
+  @JsonKey(includeIfNull: false)
   final String? color;
   @override
-  @JsonKey()
-  final bool active;
+  @JsonKey(includeIfNull: false)
+  final bool? active;
 
   @override
   String toString() {
@@ -167,19 +181,22 @@ class _$_UpdateTagDto implements _UpdateTagDto {
 
 abstract class _UpdateTagDto implements UpdateTagDto {
   const factory _UpdateTagDto(
-      {final String? name,
-      final String? color,
-      final bool active}) = _$_UpdateTagDto;
+      {@JsonKey(includeIfNull: false) final String? name,
+      @JsonKey(includeIfNull: false) final String? color,
+      @JsonKey(includeIfNull: false) final bool? active}) = _$_UpdateTagDto;
 
   factory _UpdateTagDto.fromJson(Map<String, dynamic> json) =
       _$_UpdateTagDto.fromJson;
 
   @override
+  @JsonKey(includeIfNull: false)
   String? get name;
   @override
+  @JsonKey(includeIfNull: false)
   String? get color;
   @override
-  bool get active;
+  @JsonKey(includeIfNull: false)
+  bool? get active;
   @override
   @JsonKey(ignore: true)
   _$$_UpdateTagDtoCopyWith<_$_UpdateTagDto> get copyWith =>

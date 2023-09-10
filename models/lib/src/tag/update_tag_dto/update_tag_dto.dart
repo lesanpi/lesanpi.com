@@ -2,6 +2,7 @@ import 'package:either_dart/either.dart';
 import 'package:exceptions/exceptions.dart';
 import 'package:failures/failures.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:models/models.dart';
 import 'package:models/src/tag/create_tag_dto/create_tag_dto.dart';
 
 part 'update_tag_dto.freezed.dart';
@@ -14,9 +15,9 @@ part 'update_tag_dto.g.dart';
 class UpdateTagDto with _$UpdateTagDto {
   /// {@macro update_tag_dto}
   const factory UpdateTagDto({
-    String? name,
-    String? color,
-    @Default(true) bool active,
+    @JsonKey(includeIfNull: false) String? name,
+    @JsonKey(includeIfNull: false) String? color,
+    @JsonKey(includeIfNull: false) bool? active,
   }) = _UpdateTagDto;
 
   /// Creates a UpdateTagDto from Json map
@@ -65,4 +66,14 @@ class UpdateTagDto with _$UpdateTagDto {
       );
     }
   }
+}
+
+/// [UpdateTagDto] extension
+extension UpdateTagDtoX on UpdateTagDto {
+  /// Creates a updateTagDto from [Tag] model
+  UpdateTagDto copyFromTag(Tag tag) => UpdateTagDto(
+        active: active ?? tag.active,
+        color: color ?? tag.color,
+        name: name ?? tag.name,
+      );
 }

@@ -75,9 +75,25 @@ class TagDataSourceImpl extends TagDataSource {
   }
 
   @override
-  Future<Tag> updateTag({required TagId id, required UpdateTagDto tag}) {
-    // TODO: implement updateTag
-    throw UnimplementedError();
+  Future<Tag> updateTag({required TagId id, required UpdateTagDto tag}) async {
+    try {
+      await _databaseConnection.connect();
+      final collection = _databaseConnection.db.collection('tags');
+      await collection.update(
+        where.id(ObjectId.fromHexString(id)),
+        tag.toJson(),
+      );
+      return getTagById(id);
+    } on HttpException {
+      rethrow;
+    } on ServerException {
+      rethrow;
+    } catch (e, s) {
+      print('Exception $e, $s');
+      throw ServerException('Unexpected error: $e, $s');
+    } finally {
+      await _databaseConnection.close();
+    }
   }
 
   @override
@@ -101,6 +117,8 @@ class TagDataSourceImpl extends TagDataSource {
 
       final tag = Tag.fromJson(tagDocument);
       return tag;
+    } on HttpException {
+      rethrow;
     } on ServerException {
       rethrow;
     } catch (e, s) {
