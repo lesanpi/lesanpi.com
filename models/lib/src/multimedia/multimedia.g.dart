@@ -8,7 +8,7 @@ part of 'multimedia.dart';
 
 _$_Multimedia _$$_MultimediaFromJson(Map<String, dynamic> json) =>
     _$_Multimedia(
-      id: json['id'] as String,
+      id: json['_id'] as String,
       filename: json['filename'] as String,
       url: json['url'] as String,
       type: $enumDecode(_$MultimediaTypeEnumEnumMap, json['type']),
@@ -16,7 +16,7 @@ _$_Multimedia _$$_MultimediaFromJson(Map<String, dynamic> json) =>
 
 Map<String, dynamic> _$$_MultimediaToJson(_$_Multimedia instance) =>
     <String, dynamic>{
-      'id': instance.id,
+      '_id': instance.id,
       'filename': instance.filename,
       'url': instance.url,
       'type': instance.type,

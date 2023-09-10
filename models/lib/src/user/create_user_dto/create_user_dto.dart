@@ -20,6 +20,10 @@ class CreateUserDto with _$CreateUserDto {
     required String lastname,
     required String password,
     required String email,
+    @DateTimeConverter() required DateTime createdAt,
+    @Default(true) bool active,
+    @Default(false) bool admin,
+    @DateTimeConverterNullable() DateTime? updatedAt,
     CreateMultimediaDto? photo,
   }) = _CreateUserDto;
 

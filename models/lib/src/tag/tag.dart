@@ -11,7 +11,7 @@ part 'tag.g.dart';
 class Tag with _$Tag {
   /// {@macro tag}
   const factory Tag({
-    required TagId id,
+    @JsonKey(name: '_id') required TagId id,
     required String name,
     required String color,
     @Default(true) bool active,

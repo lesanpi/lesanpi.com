@@ -24,6 +24,12 @@ mixin _$CreateUserDto {
   String get lastname => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
+  @DateTimeConverter()
+  DateTime get createdAt => throw _privateConstructorUsedError;
+  bool get active => throw _privateConstructorUsedError;
+  bool get admin => throw _privateConstructorUsedError;
+  @DateTimeConverterNullable()
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
   CreateMultimediaDto? get photo => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -43,6 +49,10 @@ abstract class $CreateUserDtoCopyWith<$Res> {
       String lastname,
       String password,
       String email,
+      @DateTimeConverter() DateTime createdAt,
+      bool active,
+      bool admin,
+      @DateTimeConverterNullable() DateTime? updatedAt,
       CreateMultimediaDto? photo});
 
   $CreateMultimediaDtoCopyWith<$Res>? get photo;
@@ -65,6 +75,10 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
     Object? lastname = null,
     Object? password = null,
     Object? email = null,
+    Object? createdAt = null,
+    Object? active = null,
+    Object? admin = null,
+    Object? updatedAt = freezed,
     Object? photo = freezed,
   }) {
     return _then(_value.copyWith(
@@ -84,6 +98,22 @@ class _$CreateUserDtoCopyWithImpl<$Res, $Val extends CreateUserDto>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
+      admin: null == admin
+          ? _value.admin
+          : admin // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       photo: freezed == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
@@ -117,6 +147,10 @@ abstract class _$$_CreateUserDtoCopyWith<$Res>
       String lastname,
       String password,
       String email,
+      @DateTimeConverter() DateTime createdAt,
+      bool active,
+      bool admin,
+      @DateTimeConverterNullable() DateTime? updatedAt,
       CreateMultimediaDto? photo});
 
   @override
@@ -138,6 +172,10 @@ class __$$_CreateUserDtoCopyWithImpl<$Res>
     Object? lastname = null,
     Object? password = null,
     Object? email = null,
+    Object? createdAt = null,
+    Object? active = null,
+    Object? admin = null,
+    Object? updatedAt = freezed,
     Object? photo = freezed,
   }) {
     return _then(_$_CreateUserDto(
@@ -157,6 +195,22 @@ class __$$_CreateUserDtoCopyWithImpl<$Res>
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String,
+      createdAt: null == createdAt
+          ? _value.createdAt
+          : createdAt // ignore: cast_nullable_to_non_nullable
+              as DateTime,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
+              as bool,
+      admin: null == admin
+          ? _value.admin
+          : admin // ignore: cast_nullable_to_non_nullable
+              as bool,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       photo: freezed == photo
           ? _value.photo
           : photo // ignore: cast_nullable_to_non_nullable
@@ -173,6 +227,10 @@ class _$_CreateUserDto implements _CreateUserDto {
       required this.lastname,
       required this.password,
       required this.email,
+      @DateTimeConverter() required this.createdAt,
+      this.active = true,
+      this.admin = false,
+      @DateTimeConverterNullable() this.updatedAt,
       this.photo});
 
   factory _$_CreateUserDto.fromJson(Map<String, dynamic> json) =>
@@ -187,11 +245,23 @@ class _$_CreateUserDto implements _CreateUserDto {
   @override
   final String email;
   @override
+  @DateTimeConverter()
+  final DateTime createdAt;
+  @override
+  @JsonKey()
+  final bool active;
+  @override
+  @JsonKey()
+  final bool admin;
+  @override
+  @DateTimeConverterNullable()
+  final DateTime? updatedAt;
+  @override
   final CreateMultimediaDto? photo;
 
   @override
   String toString() {
-    return 'CreateUserDto(name: $name, lastname: $lastname, password: $password, email: $email, photo: $photo)';
+    return 'CreateUserDto(name: $name, lastname: $lastname, password: $password, email: $email, createdAt: $createdAt, active: $active, admin: $admin, updatedAt: $updatedAt, photo: $photo)';
   }
 
   @override
@@ -205,13 +275,19 @@ class _$_CreateUserDto implements _CreateUserDto {
             (identical(other.password, password) ||
                 other.password == password) &&
             (identical(other.email, email) || other.email == email) &&
+            (identical(other.createdAt, createdAt) ||
+                other.createdAt == createdAt) &&
+            (identical(other.active, active) || other.active == active) &&
+            (identical(other.admin, admin) || other.admin == admin) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt) &&
             (identical(other.photo, photo) || other.photo == photo));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, name, lastname, password, email, photo);
+  int get hashCode => Object.hash(runtimeType, name, lastname, password, email,
+      createdAt, active, admin, updatedAt, photo);
 
   @JsonKey(ignore: true)
   @override
@@ -233,6 +309,10 @@ abstract class _CreateUserDto implements CreateUserDto {
       required final String lastname,
       required final String password,
       required final String email,
+      @DateTimeConverter() required final DateTime createdAt,
+      final bool active,
+      final bool admin,
+      @DateTimeConverterNullable() final DateTime? updatedAt,
       final CreateMultimediaDto? photo}) = _$_CreateUserDto;
 
   factory _CreateUserDto.fromJson(Map<String, dynamic> json) =
@@ -246,6 +326,16 @@ abstract class _CreateUserDto implements CreateUserDto {
   String get password;
   @override
   String get email;
+  @override
+  @DateTimeConverter()
+  DateTime get createdAt;
+  @override
+  bool get active;
+  @override
+  bool get admin;
+  @override
+  @DateTimeConverterNullable()
+  DateTime? get updatedAt;
   @override
   CreateMultimediaDto? get photo;
   @override

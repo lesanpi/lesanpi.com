@@ -13,17 +13,17 @@ part 'user.g.dart';
 class User with _$User {
   /// {@macro user}
   const factory User({
-    required UserId id,
+    @JsonKey(name: '_id') required UserId id,
     required String email,
     required String name,
     required String lastname,
     required Multimedia? photo,
     @DateTimeConverter() required DateTime createdAt,
     @DateTimeConverterNullable() required DateTime? updatedAt,
-    @Default(true) bool active,
     @Default(false) bool admin,
+    @Default(true) bool active,
     @Default(false) bool emailConfirmed,
-    @Default('') String password,
+    @Default('') @JsonKey(includeToJson: false) String password,
   }) = _User;
 
   /// Creates a User from Json map

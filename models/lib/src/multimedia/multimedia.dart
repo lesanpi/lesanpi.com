@@ -12,7 +12,7 @@ part 'multimedia.g.dart';
 class Multimedia with _$Multimedia {
   /// {@macro multimedia}
   const factory Multimedia({
-    required String id,
+    @JsonKey(name: '_id') required String id,
     required String filename,
     required String url,
     required MultimediaTypeEnum type,

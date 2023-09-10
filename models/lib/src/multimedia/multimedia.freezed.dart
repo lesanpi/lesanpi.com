@@ -20,6 +20,7 @@ Multimedia _$MultimediaFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Multimedia {
+  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   String get filename => throw _privateConstructorUsedError;
   String get url => throw _privateConstructorUsedError;
@@ -37,7 +38,11 @@ abstract class $MultimediaCopyWith<$Res> {
           Multimedia value, $Res Function(Multimedia) then) =
       _$MultimediaCopyWithImpl<$Res, Multimedia>;
   @useResult
-  $Res call({String id, String filename, String url, MultimediaTypeEnum type});
+  $Res call(
+      {@JsonKey(name: '_id') String id,
+      String filename,
+      String url,
+      MultimediaTypeEnum type});
 }
 
 /// @nodoc
@@ -87,7 +92,11 @@ abstract class _$$_MultimediaCopyWith<$Res>
       __$$_MultimediaCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String filename, String url, MultimediaTypeEnum type});
+  $Res call(
+      {@JsonKey(name: '_id') String id,
+      String filename,
+      String url,
+      MultimediaTypeEnum type});
 }
 
 /// @nodoc
@@ -131,7 +140,7 @@ class __$$_MultimediaCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_Multimedia implements _Multimedia {
   const _$_Multimedia(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       required this.filename,
       required this.url,
       required this.type});
@@ -140,6 +149,7 @@ class _$_Multimedia implements _Multimedia {
       _$$_MultimediaFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final String id;
   @override
   final String filename;
@@ -185,7 +195,7 @@ class _$_Multimedia implements _Multimedia {
 
 abstract class _Multimedia implements Multimedia {
   const factory _Multimedia(
-      {required final String id,
+      {@JsonKey(name: '_id') required final String id,
       required final String filename,
       required final String url,
       required final MultimediaTypeEnum type}) = _$_Multimedia;
@@ -194,6 +204,7 @@ abstract class _Multimedia implements Multimedia {
       _$_Multimedia.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   String get id;
   @override
   String get filename;

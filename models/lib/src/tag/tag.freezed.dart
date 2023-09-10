@@ -20,6 +20,7 @@ Tag _$TagFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$Tag {
+  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   String get color => throw _privateConstructorUsedError;
@@ -35,7 +36,11 @@ abstract class $TagCopyWith<$Res> {
   factory $TagCopyWith(Tag value, $Res Function(Tag) then) =
       _$TagCopyWithImpl<$Res, Tag>;
   @useResult
-  $Res call({String id, String name, String color, bool active});
+  $Res call(
+      {@JsonKey(name: '_id') String id,
+      String name,
+      String color,
+      bool active});
 }
 
 /// @nodoc
@@ -82,7 +87,11 @@ abstract class _$$_TagCopyWith<$Res> implements $TagCopyWith<$Res> {
       __$$_TagCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String id, String name, String color, bool active});
+  $Res call(
+      {@JsonKey(name: '_id') String id,
+      String name,
+      String color,
+      bool active});
 }
 
 /// @nodoc
@@ -124,7 +133,7 @@ class __$$_TagCopyWithImpl<$Res> extends _$TagCopyWithImpl<$Res, _$_Tag>
 @JsonSerializable()
 class _$_Tag implements _Tag {
   const _$_Tag(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       required this.name,
       required this.color,
       this.active = true});
@@ -132,6 +141,7 @@ class _$_Tag implements _Tag {
   factory _$_Tag.fromJson(Map<String, dynamic> json) => _$$_TagFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final String id;
   @override
   final String name;
@@ -177,7 +187,7 @@ class _$_Tag implements _Tag {
 
 abstract class _Tag implements Tag {
   const factory _Tag(
-      {required final String id,
+      {@JsonKey(name: '_id') required final String id,
       required final String name,
       required final String color,
       final bool active}) = _$_Tag;
@@ -185,6 +195,7 @@ abstract class _Tag implements Tag {
   factory _Tag.fromJson(Map<String, dynamic> json) = _$_Tag.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   String get id;
   @override
   String get name;

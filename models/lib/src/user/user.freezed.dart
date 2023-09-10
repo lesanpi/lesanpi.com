@@ -20,6 +20,7 @@ User _$UserFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$User {
+  @JsonKey(name: '_id')
   String get id => throw _privateConstructorUsedError;
   String get email => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
@@ -29,9 +30,10 @@ mixin _$User {
   DateTime get createdAt => throw _privateConstructorUsedError;
   @DateTimeConverterNullable()
   DateTime? get updatedAt => throw _privateConstructorUsedError;
-  bool get active => throw _privateConstructorUsedError;
   bool get admin => throw _privateConstructorUsedError;
+  bool get active => throw _privateConstructorUsedError;
   bool get emailConfirmed => throw _privateConstructorUsedError;
+  @JsonKey(includeToJson: false)
   String get password => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -45,17 +47,17 @@ abstract class $UserCopyWith<$Res> {
       _$UserCopyWithImpl<$Res, User>;
   @useResult
   $Res call(
-      {String id,
+      {@JsonKey(name: '_id') String id,
       String email,
       String name,
       String lastname,
       Multimedia? photo,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverterNullable() DateTime? updatedAt,
-      bool active,
       bool admin,
+      bool active,
       bool emailConfirmed,
-      String password});
+      @JsonKey(includeToJson: false) String password});
 
   $MultimediaCopyWith<$Res>? get photo;
 }
@@ -80,8 +82,8 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
     Object? photo = freezed,
     Object? createdAt = null,
     Object? updatedAt = freezed,
-    Object? active = null,
     Object? admin = null,
+    Object? active = null,
     Object? emailConfirmed = null,
     Object? password = null,
   }) {
@@ -114,13 +116,13 @@ class _$UserCopyWithImpl<$Res, $Val extends User>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
       admin: null == admin
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
+              as bool,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
               as bool,
       emailConfirmed: null == emailConfirmed
           ? _value.emailConfirmed
@@ -153,17 +155,17 @@ abstract class _$$_UserCopyWith<$Res> implements $UserCopyWith<$Res> {
   @override
   @useResult
   $Res call(
-      {String id,
+      {@JsonKey(name: '_id') String id,
       String email,
       String name,
       String lastname,
       Multimedia? photo,
       @DateTimeConverter() DateTime createdAt,
       @DateTimeConverterNullable() DateTime? updatedAt,
-      bool active,
       bool admin,
+      bool active,
       bool emailConfirmed,
-      String password});
+      @JsonKey(includeToJson: false) String password});
 
   @override
   $MultimediaCopyWith<$Res>? get photo;
@@ -185,8 +187,8 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
     Object? photo = freezed,
     Object? createdAt = null,
     Object? updatedAt = freezed,
-    Object? active = null,
     Object? admin = null,
+    Object? active = null,
     Object? emailConfirmed = null,
     Object? password = null,
   }) {
@@ -219,13 +221,13 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
-      active: null == active
-          ? _value.active
-          : active // ignore: cast_nullable_to_non_nullable
-              as bool,
       admin: null == admin
           ? _value.admin
           : admin // ignore: cast_nullable_to_non_nullable
+              as bool,
+      active: null == active
+          ? _value.active
+          : active // ignore: cast_nullable_to_non_nullable
               as bool,
       emailConfirmed: null == emailConfirmed
           ? _value.emailConfirmed
@@ -243,21 +245,22 @@ class __$$_UserCopyWithImpl<$Res> extends _$UserCopyWithImpl<$Res, _$_User>
 @JsonSerializable()
 class _$_User implements _User {
   const _$_User(
-      {required this.id,
+      {@JsonKey(name: '_id') required this.id,
       required this.email,
       required this.name,
       required this.lastname,
       required this.photo,
       @DateTimeConverter() required this.createdAt,
       @DateTimeConverterNullable() required this.updatedAt,
-      this.active = true,
       this.admin = false,
+      this.active = true,
       this.emailConfirmed = false,
-      this.password = ''});
+      @JsonKey(includeToJson: false) this.password = ''});
 
   factory _$_User.fromJson(Map<String, dynamic> json) => _$$_UserFromJson(json);
 
   @override
+  @JsonKey(name: '_id')
   final String id;
   @override
   final String email;
@@ -275,20 +278,20 @@ class _$_User implements _User {
   final DateTime? updatedAt;
   @override
   @JsonKey()
-  final bool active;
+  final bool admin;
   @override
   @JsonKey()
-  final bool admin;
+  final bool active;
   @override
   @JsonKey()
   final bool emailConfirmed;
   @override
-  @JsonKey()
+  @JsonKey(includeToJson: false)
   final String password;
 
   @override
   String toString() {
-    return 'User(id: $id, email: $email, name: $name, lastname: $lastname, photo: $photo, createdAt: $createdAt, updatedAt: $updatedAt, active: $active, admin: $admin, emailConfirmed: $emailConfirmed, password: $password)';
+    return 'User(id: $id, email: $email, name: $name, lastname: $lastname, photo: $photo, createdAt: $createdAt, updatedAt: $updatedAt, admin: $admin, active: $active, emailConfirmed: $emailConfirmed, password: $password)';
   }
 
   @override
@@ -306,8 +309,8 @@ class _$_User implements _User {
                 other.createdAt == createdAt) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
-            (identical(other.active, active) || other.active == active) &&
             (identical(other.admin, admin) || other.admin == admin) &&
+            (identical(other.active, active) || other.active == active) &&
             (identical(other.emailConfirmed, emailConfirmed) ||
                 other.emailConfirmed == emailConfirmed) &&
             (identical(other.password, password) ||
@@ -317,7 +320,7 @@ class _$_User implements _User {
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, id, email, name, lastname, photo,
-      createdAt, updatedAt, active, admin, emailConfirmed, password);
+      createdAt, updatedAt, admin, active, emailConfirmed, password);
 
   @JsonKey(ignore: true)
   @override
@@ -335,21 +338,22 @@ class _$_User implements _User {
 
 abstract class _User implements User {
   const factory _User(
-      {required final String id,
+      {@JsonKey(name: '_id') required final String id,
       required final String email,
       required final String name,
       required final String lastname,
       required final Multimedia? photo,
       @DateTimeConverter() required final DateTime createdAt,
       @DateTimeConverterNullable() required final DateTime? updatedAt,
-      final bool active,
       final bool admin,
+      final bool active,
       final bool emailConfirmed,
-      final String password}) = _$_User;
+      @JsonKey(includeToJson: false) final String password}) = _$_User;
 
   factory _User.fromJson(Map<String, dynamic> json) = _$_User.fromJson;
 
   @override
+  @JsonKey(name: '_id')
   String get id;
   @override
   String get email;
@@ -366,12 +370,13 @@ abstract class _User implements User {
   @DateTimeConverterNullable()
   DateTime? get updatedAt;
   @override
-  bool get active;
-  @override
   bool get admin;
+  @override
+  bool get active;
   @override
   bool get emailConfirmed;
   @override
+  @JsonKey(includeToJson: false)
   String get password;
   @override
   @JsonKey(ignore: true)
