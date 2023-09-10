@@ -35,6 +35,8 @@ class TagRepositoryImpl extends TagRepository {
   @override
   Future<Either<Failure, OperationResultDto>> deleteTag(TagId id) async {
     try {
+      final exists = await getTagById(id);
+      if (exists.isLeft) return Left(exists.left);
       final result = await dataSource.deleteTagById(id: id);
       return Right(result);
     } on ServerException catch (e) {
@@ -57,9 +59,15 @@ class TagRepositoryImpl extends TagRepository {
   }
 
   @override
-  Future<Either<Failure, Tag>> getTagById(TagId id) {
-    // TODO: implement getTagById
-    throw UnimplementedError();
+  Future<Either<Failure, Tag>> getTagById(TagId id) async {
+    try {
+      final tags = await dataSource.getTagById(id);
+      return Right(tags);
+    } on ServerException catch (e) {
+      return Left(
+        ServerFailure(message: e.message),
+      );
+    }
   }
 
   @override

@@ -79,4 +79,34 @@ class TagDataSourceImpl extends TagDataSource {
     // TODO: implement updateTag
     throw UnimplementedError();
   }
+
+  @override
+  Future<Tag> getTagById(TagId id) async {
+    try {
+      await _databaseConnection.connect();
+      final collection = _databaseConnection.db.collection('tags');
+      final result =
+          await collection.findOne(where.id(ObjectId.fromHexString(id)));
+      final tagDocument = result ?? {};
+
+      if (tagDocument.isEmpty) {
+        throw const NotFoundException('Tag not found');
+      }
+
+      final tagId = mapObjectId<TagId>(tagDocument['_id']);
+      if (tagId.isLeft) {
+        throw ServerException('Unexpected error: ${tagId.left.message}');
+      }
+      tagDocument['_id'] = tagId.right;
+
+      final tag = Tag.fromJson(tagDocument);
+      return tag;
+    } on ServerException {
+      rethrow;
+    } catch (e, s) {
+      throw ServerException('Unexpected error: $e, $s');
+    } finally {
+      await _databaseConnection.close();
+    }
+  }
 }
