@@ -2,6 +2,7 @@ export 'multimedia/create_multimedia_dto/create_multimedia_dto.dart';
 export 'multimedia/multimedia.dart';
 export 'multimedia/multimedia_type_enum.dart';
 export 'multimedia/update_multimedia_dto/update_multimedia_dto.dart';
+export 'operation_result/operation_result_dto.dart';
 export 'post/create_post_dto/create_post_dto.dart';
 export 'post/post.dart';
 export 'post/post_section_enum.dart';
