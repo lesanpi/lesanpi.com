@@ -73,11 +73,8 @@ class UserDataSourceImpl extends UserDataSource {
       userDocument['_id'] = userId.right;
 
       final user = User.fromJson(userDocument);
-      print('UserDataSource user $user');
       return user;
     } catch (e) {
-      print('UserDataSource user $e');
-
       throw ServerException('Unexpected error: $e');
     } finally {
       await _databaseConnection.close();

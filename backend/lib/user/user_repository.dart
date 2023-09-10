@@ -88,6 +88,12 @@ class UserRepositoryImpl extends UserRepository {
     try {
       final user = await dataSource.getUserById(id);
       return Right(user);
+    } on ServerException catch (e) {
+      return Left(
+        ServerFailure(
+          message: e.message,
+        ),
+      );
     } catch (e) {
       return const Left(
         ServerFailure(
@@ -142,19 +148,20 @@ class UserRepositoryImpl extends UserRepository {
     try {
       if (token.isEmpty) throw const UnauthorizedException();
       final decoded = jwtService.verify(token);
-      print('decoded $decoded');
       final decodedUser = User.fromJson(decoded);
       final user = await getUserById(decodedUser.id);
-      print('UserRepository: user $user');
 
       if (user.isLeft) {
-        print('UserRepository: left ${user.left}');
-
         return Left(user.left);
       }
-      print('UserRepository: rigth ${user.right}');
 
       return Right(user.right);
+    } on ServerException catch (e) {
+      return Left(
+        ServerFailure(
+          message: e.message,
+        ),
+      );
     } on HttpException catch (e) {
       return Left(
         ServerFailure(

@@ -26,7 +26,6 @@ class TagRepositoryImpl extends TagRepository {
       final todo = await dataSource.createTag(createTagDto);
       return Right(todo);
     } on ServerException catch (e) {
-      log(e.message, error: e);
       return Left(
         ServerFailure(message: e.message),
       );
