@@ -24,4 +24,7 @@ abstract class UserRepository {
     required UserId id,
     required UpdateUserInfoDto updateUserInfoDto,
   });
+
+  /// Get user by token [token]
+  Future<Either<Failure, User>> getUserByToken(String token);
 }
