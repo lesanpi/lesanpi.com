@@ -13,3 +13,14 @@ Future<Response> unimplementedHandler([RequestContext? context]) async {
     statusCode: HttpStatus.notImplemented,
   );
 }
+
+/// {@template unauthorizedHandler}
+/// This is the unauthorized handler
+/// It handles all the requests that are not unauthorized
+/// {@endtemplate}
+Future<Response> unauthorizedHandler([RequestContext? context]) async {
+  return Response.json(
+    body: {'error': '🔐 Unauthorized user'},
+    statusCode: HttpStatus.unauthorized,
+  );
+}
