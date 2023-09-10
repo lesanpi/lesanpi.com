@@ -3,23 +3,26 @@ import 'package:backend/tag/tag_controller.dart';
 import 'package:dart_frog/dart_frog.dart';
 import 'package:models/models.dart';
 
-Future<Response> onRequest(RequestContext context) async {
+Future<Response> onRequest(RequestContext context, String id) async {
   final controller = context.read<TagController>();
 
   switch (context.request.method) {
-    case HttpMethod.post:
+    case HttpMethod.put:
+    case HttpMethod.patch:
       final user = context.read<User>();
       if (user.admin) {
-        return controller.store(context.request);
+        return controller.update(context.request, id);
       }
       return unauthorizedHandler(context);
 
-    case HttpMethod.get:
-      return controller.index(context.request);
-
-    case HttpMethod.put:
-    case HttpMethod.patch:
     case HttpMethod.delete:
+      final user = context.read<User>();
+      if (user.admin) {
+        return controller.destroy(context.request, id);
+      }
+      return unauthorizedHandler(context);
+    case HttpMethod.post:
+    case HttpMethod.get:
     case HttpMethod.head:
     case HttpMethod.options:
       return unimplementedHandler(context);

@@ -5,9 +5,6 @@ import 'package:typedefs/typedefs.dart';
 /// A class that manages the tag data.
 /// {@endtemplate}
 abstract class TagDataSource {
-  /// Get tag by [id].
-  Future<Tag> getPostById(TagId id);
-
   /// Get all tags
   Future<List<Tag>> getAllTags();
 
@@ -21,7 +18,7 @@ abstract class TagDataSource {
   });
 
   /// Delete tag by id
-  Future<Tag> deleteTagById({
+  Future<OperationResultDto> deleteTagById({
     required TagId id,
   });
 }

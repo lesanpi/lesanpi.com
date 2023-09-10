@@ -33,15 +33,27 @@ class TagRepositoryImpl extends TagRepository {
   }
 
   @override
-  Future<Either<Failure, void>> deleteTag(TagId id) {
-    // TODO: implement deleteTag
-    throw UnimplementedError();
+  Future<Either<Failure, OperationResultDto>> deleteTag(TagId id) async {
+    try {
+      final result = await dataSource.deleteTagById(id: id);
+      return Right(result);
+    } on ServerException catch (e) {
+      return Left(
+        ServerFailure(message: e.message),
+      );
+    }
   }
 
   @override
-  Future<Either<Failure, List<Post>>> getAllTags() {
-    // TODO: implement getAllTags
-    throw UnimplementedError();
+  Future<Either<Failure, List<Tag>>> getAllTags() async {
+    try {
+      final tags = await dataSource.getAllTags();
+      return Right(tags);
+    } on ServerException catch (e) {
+      return Left(
+        ServerFailure(message: e.message),
+      );
+    }
   }
 
   @override

@@ -11,7 +11,7 @@ abstract class TagRepository {
   Future<Either<Failure, Tag>> getTagById(TagId id);
 
   /// Get all posts
-  Future<Either<Failure, List<Post>>> getAllTags();
+  Future<Either<Failure, List<Tag>>> getAllTags();
 
   /// Create new tag using the given [createTagDto]
   Future<Either<Failure, Tag>> createTag(CreateTagDto createTagDto);
@@ -23,5 +23,5 @@ abstract class TagRepository {
   });
 
   /// Delete a tag with the given [id].
-  Future<Either<Failure, void>> deleteTag(TagId id);
+  Future<Either<Failure, OperationResultDto>> deleteTag(TagId id);
 }

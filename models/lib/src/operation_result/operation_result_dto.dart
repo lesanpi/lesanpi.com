@@ -14,7 +14,7 @@ class OperationResultDto with _$OperationResultDto {
     @Default(null) String? message,
   }) = _OperationResultDto;
 
-  /// Creates a operation result from Json map
+  /// Creates a operation from Json map
   factory OperationResultDto.fromJson(Map<String, dynamic> json) =>
       _$OperationResultDtoFromJson(json);
 }

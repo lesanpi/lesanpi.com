@@ -41,8 +41,13 @@ Handler middleware(Handler handler) {
               (right) => right,
             );
           },
-          applies: (RequestContext context) async =>
-              context.request.method == HttpMethod.post,
+          applies: (RequestContext context) async {
+            final method = context.request.method;
+            return method == HttpMethod.post ||
+                method == HttpMethod.delete ||
+                method == HttpMethod.put ||
+                method == HttpMethod.patch;
+          },
         ),
       );
 }

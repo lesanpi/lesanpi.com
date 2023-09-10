@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:backend/controller/http_controller.dart';
 import 'package:dart_frog/src/_internal.dart';
+import 'package:either_dart/either.dart';
 import 'package:models/models.dart';
 import 'package:repository/repository.dart';
 
@@ -13,6 +14,21 @@ class TagController extends HttpController {
   /// {@macro tag_controller}
   TagController(this._repo);
   final TagRepository _repo;
+  @override
+  FutureOr<Response> index(Request request) {
+    final tags = _repo.getAllTags();
+    return tags.fold(
+      (left) => Response.json(
+        body: {
+          'message': left.message,
+        },
+        statusCode: left.statusCode,
+      ),
+      (right) => Response.json(
+        body: right.map((e) => e.toJson()).toList(),
+      ),
+    );
+  }
 
   @override
   FutureOr<Response> store(Request request) async {
@@ -46,6 +62,22 @@ class TagController extends HttpController {
       (right) => Response.json(
         body: right.toJson(),
         statusCode: HttpStatus.created,
+      ),
+    );
+  }
+
+  @override
+  FutureOr<Response> destroy(Request request, String id) {
+    final result = _repo.deleteTag(id);
+    return result.fold(
+      (left) => Response.json(
+        body: {
+          'message': left.message,
+          'success': false,
+        },
+      ),
+      (right) => Response.json(
+        body: right.toJson(),
       ),
     );
   }
