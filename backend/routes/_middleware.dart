@@ -6,7 +6,7 @@ final env = DotEnv()..load(['variables.env']);
 final _db = DatabaseConnection(dbUrl: env['DB_URL'] ?? '');
 
 Handler middleware(Handler handler) {
-  return handler
-      .use(requestLogger())
-      .use(provider<DatabaseConnection>((_) => _db));
+  return handler;
+  // .use(requestLogger())
+  // .use(provider<DatabaseConnection>((_) => _db));
 }

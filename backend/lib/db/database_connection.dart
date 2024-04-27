@@ -27,16 +27,16 @@ class DatabaseConnection {
         dbUrl,
       );
       await _connection!.open();
-      log('Database connection successful');
+      print('Database connection successful');
     } catch (e, s) {
-      log(
+      print(
         'Database connection failed: $e',
-        error: e,
-        stackTrace: s,
       );
     }
   }
 
   /// Close connection
-  Future<void> close() => _connection!.close();
+  Future<void> close() async {
+    await _connection?.close();
+  }
 }

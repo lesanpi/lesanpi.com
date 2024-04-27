@@ -14,10 +14,10 @@ enum PostSectionEnum {
 
   @override
   String toString() => switch (this) {
-        (PostSectionEnum.featured) => 'featured',
-        (PostSectionEnum.video) => 'video',
-        (PostSectionEnum.tutorial) => 'tutorial',
-        (PostSectionEnum.tip) => 'tip',
+        (PostSectionEnum.featured) => 'Featured',
+        (PostSectionEnum.video) => 'Video',
+        (PostSectionEnum.tutorial) => 'Tutorial',
+        (PostSectionEnum.tip) => 'Tip',
       };
 
   /// Create section enum from given json
